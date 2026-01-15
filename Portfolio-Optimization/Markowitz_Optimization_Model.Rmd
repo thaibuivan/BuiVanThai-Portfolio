@@ -1,0 +1,387 @@
+---
+title: "Tối ưu Markowitz"
+author: "Bùi Văn Thái"
+date: "2025-11-08"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(lmtest)
+library(zoo)
+library(dplyr)
+```
+```{r}
+#Đọc file
+file_path <- "D:/Định giá tài sản tài chính 1/Data/Dữ liệu Lịch sử VN Index.csv" 
+
+# Import dữ liệu 
+dat <- read.csv(
+    file = file_path, 
+    header = TRUE, 
+    sep = ",", 
+    stringsAsFactors = FALSE
+)
+
+# In 6 dòng đầu tiên của dữ liệu để kiểm tra
+head(dat)
+
+# Kiểm tra cấu trúc dữ liệu
+str(dat)
+```
+```{r}
+# Trích xuất cột Rt và gán cho biến mới tên là 'rm'
+Rm <- dat$Rm
+
+# Trích xuất cột R_VIC và gán cho biến mới tên là 'ri'
+R_VIC <- dat$R_VIC
+R_VCB <- dat$R_VCB
+R_CTG <- dat$R_CTG
+R_BID <- dat$R_BID
+R_VRE <- dat$R_VRE
+R_ACB <- dat$R_ACB
+R_KBC <- dat$R_KBC
+R_NVL <- dat$R_NVL
+```
+
+
+
+```{r}
+
+# BƯỚC 1: TÁCH RIÊNG 8 CỘT LỢI SUẤT TÀI SẢN
+# (Mô hình Markowitz chỉ tối ưu hóa các tài sản rủi ro 
+
+asset_names <- c(
+  "R_VCB", 
+  "R_VIC", 
+  "R_CTG", 
+  "R_BID", 
+  "R_VRE", 
+  "R_NVL", # Thay thế
+  "R_KBC", # Thay thế
+  "R_ACB"  # Thay thế
+)
+
+# Tạo một data frame mới chỉ chứa 8 tài sản
+asset_returns_df <- dat[, asset_names]
+
+# (Đề phòng): Xóa các hàng có giá trị NA (nếu có)
+asset_returns_df <- na.omit(asset_returns_df)
+
+# BƯỚC 2: TÍNH VECTOR LỢI SUẤT KỲ VỌNG (r_bar_vector)
+# Đây là lợi suất trung bình (mean) của mỗi cột tài sản
+
+r_bar_vector <- colMeans(asset_returns_df)
+
+# BƯỚC 3: TÍNH MA TRẬN HIỆP PHƯƠNG SAI (V_matrix)
+# Đây là ma trận 8x8 tính toán hiệp phương sai giữa các tài sản
+
+V_matrix <- cov(asset_returns_df)
+print(V_matrix)
+# BƯỚC 4: KIỂM TRA KẾT QUẢ
+
+cat("\n--- 1. Vector Lợi suất Kỳ vọng (r_bar_vector) ---\n")
+print(r_bar_vector)
+
+cat("\n--- 2. Ma trận Hiệp phương sai (V_matrix) (6 dòng/cột đầu) ---\n")
+print(head(V_matrix[, 1:6]))
+
+cat("\n--- 3. Kích thước của V_matrix (phải là 8x8) ---\n")
+print(dim(V_matrix))
+
+
+```
+
+
+
+
+```{r}
+# BƯỚC 1: CÀI ĐẶT VÀ TẢI THƯ VIỆN (Chạy 1 lần nếu chưa cài)
+# install.packages("quadprog")
+library(quadprog)
+
+# BƯỚC 2: CHUẨN BỊ ĐẦU VÀO (GIẢ SỬ BẠN ĐÃ CÓ)
+rf_rate <- 0.001756173
+
+# Đảm bảo V_matrix là ma trận
+V_matrix <- as.matrix(V_matrix)
+N <- ncol(V_matrix) # Số lượng tài sản (ví dụ: 8)
+```
+
+
+```{r}
+# --- A. TÌM DANH MỤC RỦI RO THẤP NHẤT TOÀN CỤC (GMVP) ---
+# (Danh mục này chỉ tối thiểu hóa rủi ro, không quan tâm lợi suất)
+
+# Thiết lập ràng buộc cho solve.QP (GMVP)
+# Ràng buộc 1: Tổng trọng số = 1 (Sum(w_i) = 1)
+# Ràng buộc 2: Cấm bán khống (w_i >= 0)
+Amat <- matrix(1, nrow = N)
+bvec <- 1
+meq <- 1 # Ràng buộc (1) là ràng buộc bằng (equality)
+Amat_non_neg <- diag(N) # Tạo ma trận đường chéo
+bvec_non_neg <- rep(0, N)
+# Ghép các ràng buộc
+Amat_gmvp <- cbind(Amat, Amat_non_neg)
+bvec_gmvp <- c(bvec, bvec_non_neg)
+
+# Hàm solve.QP tối thiểu hóa (1/2)W'VW 
+dvec_gmvp <- rep(0, N) 
+
+# Giải tối ưu hóa GMVP
+opt_gmvp <- solve.QP(
+  Dmat = V_matrix,
+  dvec = dvec_gmvp,
+  Amat = Amat_gmvp,
+  bvec = bvec_gmvp,
+  meq = meq
+)
+
+# Lấy trọng số GMVP
+W_gmvp <- opt_gmvp$solution
+names(W_gmvp) <- colnames(V_matrix) # Gán tên cổ phiếu
+W_gmvp[W_gmvp < 1e-6] <- 0 # Làm sạch các giá trị quá nhỏ (gán bằng 0)
+
+```
+
+
+
+```{r}
+# --- B. TÌM DANH MỤC TIẾP TUYẾN (TỐI ĐA HÓA SHARPE) ---
+# (Đây là danh mục tối ưu nhất của bạn)
+
+# Bài toán này phức tạp hơn, chúng ta cần tối ưu hóa phi tuyến
+# Chúng ta sẽ sửf dụng phương pháp lặp (loop) để tìm ra Biên Hiệu quả
+# và chọn điểm có Tỷ lệ Sharpe cao nhất.
+
+# 1. Tạo các mức lợi suất mục tiêu (từ thấp đến cao)
+r_min <- min(r_bar_vector)
+r_max <- max(r_bar_vector)
+target_returns <- seq(r_min, r_max, length.out =1000) # Tạo 100 điểm lợi suất
+
+# 2. Thiết lập ma trận ràng buộc (Markowitz chuẩn)
+# Ràng buộc 1: Sum(w_i) = 1
+# Ràng buộc 2: Sum(w_i * r_bar_i) = target_return
+# Ràng buộc 3: w_i >= 0
+Amat_markowitz <- cbind(
+  rep(1, N),         # Ràng buộc 1
+  r_bar_vector,      # Ràng buộc 2
+  diag(N)            # Ràng buộc 3
+)
+meq_markowitz <- 2 # 2 ràng buộc đầu tiên là ràng buộc bằng
+
+# 3. Chạy vòng lặp (Loop) để tìm biên hiệu quả
+efficient_frontier <- data.frame(
+  Risk_Sigma = numeric(1000),
+  Return_rP = numeric(1000)
+)
+all_weights <- matrix(NA, nrow = 1000, ncol = N)
+
+for (i in 1:1000) {
+  target_r <- target_returns[i]
+  
+  # Cập nhật vector ràng buộc
+  bvec_markowitz <- c(
+    1,          # Ràng buộc 1 (Sum = 1)
+    target_r,   # Ràng buộc 2 (Return = target_r)
+    rep(0, N)   # Ràng buộc 3 (w_i >= 0)
+  ) 
+  
+  # Giải tối ưu hóa cho điểm này
+  opt_i <- solve.QP(
+    Dmat = V_matrix,
+    dvec = rep(0, N),
+    Amat = Amat_markowitz,
+    bvec = bvec_markowitz,
+    meq = meq_markowitz
+  )
+  
+  W_i <- opt_i$solution
+  W_i[W_i < 1e-6] <- 0 # Làm sạch trọng số
+  
+  # Lưu kết quả
+  efficient_frontier$Risk_Sigma[i] <- sqrt(t(W_i) %*% V_matrix %*% W_i)
+  efficient_frontier$Return_rP[i] <- target_r
+  all_weights[i, ] <- W_i
+}
+```
+
+```{r}
+# 4. TÍNH TOÁN DANH MỤC TIẾP TUYẾN (TANGENCY PORTFOLIO)
+# Tính Tỷ lệ Sharpe cho mỗi điểm trên biên hiệu quả
+efficient_frontier$SharpeRatio <- (efficient_frontier$Return_rP - rf_rate) / efficient_frontier$Risk_Sigma
+
+# Tìm điểm có Sharpe Ratio cao nhất
+max_sharpe_index <- which.max(efficient_frontier$SharpeRatio)
+
+# Trọng số TỐI ƯU (W*) của bạn là đây:
+W_tangency <- all_weights[max_sharpe_index, ]
+names(W_tangency) <- colnames(V_matrix)
+
+# --- KẾT QUẢ ---
+cat("KẾT QUẢ TỐI ƯU HÓA MARKOWITZ\n")
+
+cat("\n--- 1. Danh mục Rủi ro Thấp nhất (GMVP) ---\n")
+print(round(W_gmvp, 4))
+
+cat("\n--- 2. Danh mục Tỷ lệ Sharpe Tối đa (TANGENCY PORTFOLIO) ---\n")
+print(round(W_tangency, 4))
+
+cat("\n--- 3. Lợi suất và Rủi ro của Danh mục Tối ưu ---\n")
+print(efficient_frontier[max_sharpe_index, ])
+
+# In biểu đồ Biên Hiệu quả
+plot(efficient_frontier$Risk_Sigma, efficient_frontier$Return_rP, 
+     type = "l", col = "blue", lwd = 2,
+     main = "Biên Hiệu Quả (Efficient Frontier)",
+     xlab = "Rủi ro (Độ lệch chuẩn - Sigma)",
+     ylab = "Lợi suất Kỳ vọng (rP)")
+# Thêm điểm Tangency
+points(efficient_frontier$Risk_Sigma[max_sharpe_index], 
+       efficient_frontier$Return_rP[max_sharpe_index], 
+       col = "red", pch = 19, cex = 1.5)
+```
+
+```{r}
+# (Giả sử bạn đã có:
+# W_gmvp: Vector trọng số của Danh mục Rủi ro Thấp nhất (từ Phần A)
+# returns_matrix: Ma trận lợi suất lịch sử của 8 cổ phiếu)
+
+cat("\n=========================================\n")
+cat("BƯỚC 5 (Phần A): PHÂN TÍCH FRM CHO DANH MỤC GMVP\n")
+cat("=========================================\n")
+
+# 1. TẠO CHUỖI LỢI SUẤT LỊCH SỬ CHO DANH MỤC GMVP
+# (Nhân ma trận lợi suất lịch sử (Nx8) với vector trọng số GMVP (8x1))
+portfolio_returns_history_gmvp <- returns_matrix %*% W_gmvp
+
+# 2. TÍNH TOÁN VAR LỊCH SỬ (HISTORICAL VAR)
+alpha_95 <- 0.05 # Cho VaR 95%
+alpha_99 <- 0.01 # Cho VaR 99%
+
+VaR_95_gmvp <- quantile(portfolio_returns_history_gmvp, probs = alpha_95)
+VaR_99_gmvp <- quantile(portfolio_returns_history_gmvp, probs = alpha_99)
+
+cat("--- Kết quả VaR Lịch sử (GMVP) (Hàng tháng) ---\n")
+cat(paste("VaR 95% (GMVP):", round(VaR_95_gmvp * 100, 2), "%\n"))
+cat(paste("VaR 99% (GMVP):", round(VaR_99_gmvp * 100, 2), "%\n"))
+
+# 3. TÍNH TOÁN CVAR / EXPECTED SHORTFALL (ES)
+ES_95_gmvp <- mean(portfolio_returns_history_gmvp[portfolio_returns_history_gmvp < VaR_95_gmvp])
+ES_99_gmvp <- mean(portfolio_returns_history_gmvp[portfolio_returns_history_gmvp < VaR_99_gmvp])
+
+cat("\n--- Kết quả CVaR/ES Lịch sử (GMVP) (Hàng tháng) ---\n")
+cat(paste("CVaR 95% (GMVP):", round(ES_95_gmvp * 100, 2), "%\n"))
+cat(paste("CVaR 99% (GMVP):", round(ES_99_gmvp * 100, 2), "%\n"))
+```
+
+
+
+```{r}
+### Phân tích FRM
+
+cat("BƯỚC 5: PHÂN TÍCH RỦI RO DANH MỤC (FRM / VaR)\n")
+# 1. TẠO CHUỖI LỢI SUẤT LỊCH SỬ CHO DANH MỤC TỐI ƯU
+
+# Chuyển data frame lợi suất tài sản sang ma trận
+returns_matrix <- as.matrix(asset_returns_df)
+
+# Nhân ma trận lợi suất lịch sử (Nx8) với vector trọng số tối ưu (8x1)
+# Kết quả là 1 cột (vector) lợi suất lịch sử của Danh mục Tối ưu
+portfolio_returns_history <- returns_matrix %*% W_tangency
+
+# 2. TÍNH TOÁN VAR LỊCH SỬ (HISTORICAL VAR)
+
+# Đặt mức ý nghĩa (alpha)
+alpha_95 <- 0.05 # Cho VaR 95%
+alpha_99 <- 0.01 # Cho VaR 99%
+
+# Hàm quantile() trong R sẽ tìm đúng giá trị bách phân vị
+VaR_95 <- quantile(portfolio_returns_history, probs = alpha_95)
+VaR_99 <- quantile(portfolio_returns_history, probs = alpha_99)
+
+cat("--- Kết quả VaR Lịch sử (Hàng tháng) ---\n")
+cat(paste("VaR 95% (Lỗ tối đa 1 tháng):", round(VaR_95 * 100, 2), "%\n"))
+cat(paste("VaR 99% (Lỗ tối đa 1 tháng):", round(VaR_99 * 100, 2), "%\n"))
+```
+
+```{r}
+# 3. TÍNH TOÁN CVAR / EXPECTED SHORTFALL (ES)
+# (CVaR đo lường: "Nếu vượt qua ngưỡng VaR, thì trung bình sẽ lỗ bao nhiêu?")
+
+ES_95 <- mean(portfolio_returns_history[portfolio_returns_history < VaR_95])
+ES_99 <- mean(portfolio_returns_history[portfolio_returns_history < VaR_99])
+
+cat("--- Kết quả VaR Lịch sử (Hàng tháng) ---\n")
+cat(paste("VaR 95% (Lỗ tối đa 1 tháng):", round(VaR_95 * 100, 2), "%\n"))
+cat(paste("VaR 99% (Lỗ tối đa 1 tháng):", round(VaR_99 * 100, 2), "%\n"))
+cat("\n--- Kết quả CVaR/ES Lịch sử (Hàng tháng) ---\n")
+cat(paste("CVaR 95% (Lỗ trung bình nếu vượt VaR 95%):", round(ES_95 * 100, 2), "%\n"))
+cat(paste("CVaR 99% (Lỗ trung bình nếu vượt VaR 99%):", round(ES_99 * 100, 2), "%\n"))
+
+# (Tùy chọn) Vẽ biểu đồ phân phối lợi suất của danh mục
+hist(portfolio_returns_history, breaks = 40, main = "Phân phối Lợi suất Danh mục Tối ưu", xlab = "Lợi suất tháng")
+abline(v = VaR_95, col = "red", lwd = 2)
+abline(v = VaR_99, col = "blue", lwd = 2)
+legend("topright", legend = c("VaR 95%", "VaR 99%"), col = c("red", "blue"), lty = 1)
+```
+
+```{r}
+# --- A. TÌM DANH MỤC RỦI RO THẤP NHẤT TOÀN CỤC (GMVP) ---
+# (Danh mục này chỉ tối thiểu hóa rủi ro, không quan tâm lợi suất)
+
+# Thiết lập ràng buộc cho solve.QP (GMVP)
+# Ràng buộc 1: Tổng trọng số = 1 (Sum(w_i) = 1)
+# Ràng buộc 2: Cấm bán khống (w_i >= 0)
+Amat <- matrix(1, nrow = N)
+bvec <- 1
+meq <- 1 # Ràng buộc (1) là ràng buộc bằng (equality)
+Amat_non_neg <- diag(N) # Tạo ma trận đường chéo
+bvec_non_neg <- rep(0, N)
+# Ghép các ràng buộc
+Amat_gmvp <- cbind(Amat, Amat_non_neg)
+bvec_gmvp <- c(bvec, bvec_non_neg)
+
+# Hàm solve.QP tối thiểu hóa (1/2)W'VW 
+dvec_gmvp <- rep(0, N) 
+
+# Giải tối ưu hóa GMVP
+opt_gmvp <- solve.QP(
+  Dmat = V_matrix,
+  dvec = dvec_gmvp,
+  Amat = Amat_gmvp,
+  bvec = bvec_gmvp,
+  meq = meq
+)
+
+# Lấy trọng số GMVP
+W_gmvp <- opt_gmvp$solution
+names(W_gmvp) <- colnames(V_matrix) # Gán tên cổ phiếu
+W_gmvp[W_gmvp < 1e-6] <- 0 # Làm sạch các giá trị quá nhỏ (gán bằng 0)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
