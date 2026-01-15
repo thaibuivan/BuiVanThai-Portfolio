@@ -1,0 +1,200 @@
+---
+title: "Bùi Văn Thái _ script"
+author: "Bùi Văn Thái"
+date: "2025-12-16"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readxl)
+library(dplyr)
+library(tseries)
+library(psych)
+library(factoextra)
+library(cluster)
+library(MASS) 
+library(ggplot2)
+library(biotools)
+```
+
+```{r}
+#Bài tập 1: ANOVA
+# KHỞI TẠO VÀ ĐỌC DỮ LIỆU
+HybridTest <- read_excel("D://Phân tích thống kê nhiều chiều/BT PTTKNC KTK64/HybridTest.xlsx")
+# Chuyển đổi biến phân loại thành Factor (Quan trọng cho ANOVA)
+HybridTest$Class <- as.factor(HybridTest$Class)
+HybridTest$Type <- as.factor(HybridTest$Type)
+```
+```{r}
+# THỐNG KÊ MÔ TẢ & KIỂM TRA GIẢ ĐỊNH 
+# Kiểm tra sơ bộ
+attach(HybridTest)
+summary(HybridTest)
+# Kiểm tra phân phối chuẩn 
+hist(HybridTest$MPG, main="Phân phối MPG", col="lightblue", border="white")
+jarque.bera.test(HybridTest$MPG) 
+
+# Tính trung bình theo từng nhóm (Code của bạn)
+print("--- Trung bình MPG theo Loại động cơ ---")
+print(by(HybridTest$MPG, HybridTest$Type, mean))
+
+print(" Trung bình MPG theo Cỡ xe")
+print(by(HybridTest$MPG, HybridTest$Class, mean))
+
+# Vẽ biểu đồ hộp (Boxplot) để so sánh trực quan
+par(mfrow=c(1,2)) 
+boxplot(MPG ~ Type, data = HybridTest, main="MPG theo Loại động cơ", col="orange")
+boxplot(MPG ~ Class, data = HybridTest, main="MPG theo Cỡ xe", col="green")
+par(mfrow=c(1,1)) 
+
+# Biểu đồ tương tác (Interaction Plot)
+interaction.plot(x.factor = HybridTest$Class, 
+                 trace.factor = HybridTest$Type, 
+                 response = HybridTest$MPG, 
+                 fun = mean,
+                 type = "b", col = c("red", "blue"), pch = 19,
+                 fixed = TRUE,
+                 legend = TRUE, 
+                 main = "Biểu đồ tương tác: Cỡ xe và Loại động cơ")
+```
+```{r}
+# KIỂM ĐỊNH ANOVA 2 YẾU TỐ 
+anova.2way <- aov(MPG ~ Class * Type, data = HybridTest)
+
+print("--- Kết quả phân tích phương sai (ANOVA) ---")
+summary(anova.2way)
+```
+```{r}
+# SO SÁNH CẶP 
+
+print("--- Kết quả so sánh cặp Tukey HSD ---")
+TukeyHSD(anova.2way)
+plot(TukeyHSD(anova.2way), las=1, col="red")
+```
+```{r PCA}
+#Bài tập 2: PCA
+#Đọc và xử lí dữ liệu ban đầu
+car_sales <- read_excel("D:/Phân tích thống kê nhiều chiều/BT PTTKNC KTK64/car_sales.xlsx")
+car_cleaned <- car_sales %>%
+  mutate(across(everything(), ~ ifelse(is.na(.), mean(., na.rm = TRUE), .)))
+data_car = car_cleaned[,15:25]
+```
+```{r}
+# Kiểm định điều kiện để chạy PCA
+# Nếu không làm bước này, bài làm thiếu căn cứ khoa học
+print("Kiểm định KMO (Yêu cầu > 0.5)")
+KMO(data_car)
+
+print("--- Kiểm định Bartlett (Yêu cầu p.value < 0.05)")
+cortest.bartlett(data_car)
+```
+```{r}
+#PCA
+pca = prcomp(data_car)
+pca
+summary(pca)
+screeplot(pca)
+#Regression
+print(pca$rotation[, 1:3], cutoff = 0.3)
+reg = lm(car_cleaned$sales~pca$x[,1:3])
+summary(reg)
+```
+
+```{r}
+#Bài tập 3: Phân tích cụm
+#Xác định các phương pháp liên kết
+m <- c( "average", "single", "complete", "ward")
+names(m) <- c( "average", "single", "complete", "ward")
+
+#Hàm để tính hệ số kết tụ
+ac <- function(x) {
+  agnes(data_car, method = x)$ac
+}
+
+#Tính toán hệ số kết tụ cho mỗi phương pháp liên kết phân cụm
+sapply(m, ac)
+#Wald cho hệ số lớn nhất->dùng Wald cho hierachical cluster
+```
+```{r}
+#Thực hiện phân cụm phân cấp bằng cách sử dụng phương sai tối thiểu của Ward
+clust <- agnes(data_car, method = "ward")
+
+#Produce dendrogram
+pltree(clust, cex = 0.6, hang = -1, main = "Dendrogram") 
+#Tính toán thống kê khoảng cách cho mỗi số lượng cụm (tối đa 10 cụm)
+gap_stat <- clusGap(data_car, FUN = hcut, nstart = 25, K.max = 10, B = 50)
+
+#Produce plot of clusters và gap statistic
+fviz_gap_stat(gap_stat)
+#compute distance matrix
+d <- dist(data_car, method = "euclidean")
+
+#Thực hiện phân cụm phân cấp bằng phương pháp Ward
+final_clust <- hclust(d, method = "ward.D2" )
+
+#Cut the dendrogram into 2 clusters
+groups <- cutree(final_clust, k=2)
+
+#Find number of observations in each cluster
+table(groups)
+
+#Thêm nhãn cụm vào dữ liệu gốc
+final_data <- cbind(car_cleaned, cluster = groups)
+
+#Display first six rows of final data
+head(final_data)
+
+#Find mean values for each cluster
+aggregate(final_data, by=list(cluster=final_data$cluster), mean)
+```
+
+```{r DA}
+## Bài tập 4: Discriminant analysis
+discrim <- read_excel("D:/Phân tích thống kê nhiều chiều/BT PTTKNC KTK64/discriminant_example.xlsx")
+discrim[,1:3] = scale(discrim[,1:3])
+attach(discrim)
+set.seed(1)
+#Chia data thành train/test
+sample = sample(c(TRUE, FALSE), nrow(discrim), replace = TRUE, prob = c(0.7, 0.3))
+train = discrim[sample,]
+test = discrim[!sample,]
+dim(train)
+dim(test)
+
+boxM(
+  train[, c("OUTDOOR", "SOCIAL", "CONSERVATIVE")],
+  grouping = train$JOB
+)
+```
+```{r}
+
+# LDA
+model = lda(JOB~OUTDOOR+SOCIAL+CONSERVATIVE, data = train)
+model
+
+#Dự đoán trên test
+predicted = predict(model, test)
+names(predicted)
+head(predicted$class)
+head(predicted$posterior)
+head(predicted$x)
+mean(predicted$class == test$JOB)
+
+# Plot 
+lda_plot <- cbind(train, predict(model)$x)
+
+lda_plot$JOB <- factor(lda_plot$JOB, levels = c(1, 2, 3))
+
+ggplot(lda_plot, aes(x = LD1, y = LD2)) +
+  geom_point(aes(color = JOB)) +
+  scale_color_manual(values = c("red", "green", "blue")) +  
+  theme() +
+  labs(title = "LDA Plot", color = "JOB")  
+
+```
+
+
