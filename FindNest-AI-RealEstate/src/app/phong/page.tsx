@@ -20,27 +20,56 @@ export default async function SearchResultsPage({
   let query = supabase.from('rooms').select('*').order('posted_time', { ascending: false });
 
   if (district) {
-    // Tìm kiếm tương đối để bắt được cả "Quận Cầu Giấy" khi người dùng chọn "Cầu Giấy"
-    query = query.ilike('district', `%${district}%`);
+    const districts = district.split(',');
+    if (districts.length > 0) {
+      const orCondition = districts.map(d => `district.ilike.%${d}%`).join(',');
+      query = query.or(orCondition);
+    }
   }
+  
   if (roomType) {
-    query = query.eq('room_type', roomType);
+    const types = roomType.split(',');
+    if (types.length > 0) {
+      query = query.in('room_type', types);
+    }
   }
+  
   if (price) {
-    const [min, max] = price.split('-');
-    if (min) query = query.gte('price', parseInt(min));
-    if (max) query = query.lte('price', parseInt(max));
+    const priceRanges = price.split(',');
+    if (priceRanges.length > 0) {
+      const orCond = priceRanges.map(p => {
+        const [min, max] = p.split('-');
+        const conditions = [];
+        if (min) conditions.push(`price.gte.${parseInt(min)}`);
+        if (max) conditions.push(`price.lte.${parseInt(max)}`);
+        return `and(${conditions.join(',')})`;
+      }).join(',');
+      query = query.or(orCond);
+    }
   }
+  
   if (area) {
-    const [min, max] = area.split('-');
-    if (min) query = query.gte('area', parseInt(min));
-    if (max) query = query.lte('area', parseInt(max));
+    const areaRanges = area.split(',');
+    if (areaRanges.length > 0) {
+      const orCond = areaRanges.map(a => {
+        const [min, max] = a.split('-');
+        const conditions = [];
+        if (min) conditions.push(`area.gte.${parseInt(min)}`);
+        if (max) conditions.push(`area.lte.${parseInt(max)}`);
+        return `and(${conditions.join(',')})`;
+      }).join(',');
+      query = query.or(orCond);
+    }
   }
+  
   if (bedrooms) {
-    if (bedrooms.includes('+')) {
-      query = query.gte('bedrooms', parseInt(bedrooms));
-    } else {
-      query = query.eq('bedrooms', parseInt(bedrooms));
+    const beds = bedrooms.split(',');
+    if (beds.length > 0) {
+      const orCond = beds.map(b => {
+        if (b.includes('+')) return `bedrooms.gte.${parseInt(b)}`;
+        return `bedrooms.eq.${parseInt(b)}`;
+      }).join(',');
+      query = query.or(orCond);
     }
   }
 
@@ -75,7 +104,7 @@ export default async function SearchResultsPage({
         {rooms && rooms.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {rooms.map((room) => (
-              <Link key={room.id} href={`/phong/${room.id}`} className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col">
+              <Link key={room.id} href={`/phong/${room.id}`} className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1.5 transition-all duration-500 flex flex-col ring-1 ring-transparent hover:ring-indigo-50/50">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <div 
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
@@ -110,11 +139,11 @@ export default async function SearchResultsPage({
                   </div>
 
                   <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <div className="text-xl font-black text-primary">
+                    <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 drop-shadow-sm">
                       {room.price >= 1000000 
                         ? `${(room.price / 1000000).toFixed(1)} triệu`
                         : `${(room.price / 1000).toLocaleString()}k`}
-                      <span className="text-sm text-slate-500 font-normal">/tháng</span>
+                      <span className="text-sm text-slate-500 font-normal ml-1">/tháng</span>
                     </div>
                   </div>
                 </div>
