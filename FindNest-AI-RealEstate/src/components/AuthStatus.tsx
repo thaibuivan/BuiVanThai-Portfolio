@@ -33,11 +33,11 @@ export default function AuthStatus() {
   if (!session) {
     return (
       <div className="hidden md:flex items-center gap-1">
-        <Link href="/dang-ky" className="flex items-center gap-2 px-4 py-2 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-xl transition-all">
-          Đăng ký
-        </Link>
         <Link href="/login" className="flex items-center gap-2 px-4 py-2 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-xl transition-all">
           <LogIn className="w-4 h-4" /> Đăng nhập
+        </Link>
+        <Link href="/dang-ky" className="flex items-center gap-2 px-4 py-2 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-xl transition-all">
+          Đăng ký
         </Link>
       </div>
     );
