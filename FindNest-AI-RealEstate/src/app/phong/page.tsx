@@ -76,7 +76,7 @@ export default async function SearchResultsPage({
   const { data: rooms, error } = await query;
 
   return (
-    <div className="pt-[120px] pb-24 min-h-screen bg-slate-50">
+    <div className="pt-[120px] pb-24 min-h-screen bg-transparent relative">
       <div className="container mx-auto px-4 max-w-[1200px]">
         <div className="mb-8">
           <Link href="/" className="inline-flex items-center text-primary font-medium hover:underline mb-4">
@@ -104,7 +104,7 @@ export default async function SearchResultsPage({
         {rooms && rooms.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {rooms.map((room) => (
-              <Link key={room.id} href={`/phong/${room.id}`} className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1.5 transition-all duration-500 flex flex-col ring-1 ring-transparent hover:ring-indigo-50/50">
+              <Link key={room.id} href={`/phong/${room.id}`} className="group bg-white/80 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/60 hover:shadow-[0_20px_60px_-15px_rgba(79,70,229,0.15)] hover:-translate-y-2 transition-all duration-500 flex flex-col ring-1 ring-white/50 hover:ring-indigo-300/50">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <div 
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"

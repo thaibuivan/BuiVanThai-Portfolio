@@ -2,7 +2,7 @@ import { Search, Home, Key } from "lucide-react";
 
 export default function Steps() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-transparent relative z-10">
       <div className="container mx-auto px-4 max-w-[1320px]">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
@@ -21,7 +21,7 @@ export default function Steps() {
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative shadow-sm border border-blue-100">
               <Search className="w-12 h-12 text-primary" />
-              <div className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center font-black text-xl text-slate-900 shadow-md border border-slate-100">
+              <div className="absolute -top-2 -right-2 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center font-black text-xl text-slate-900 shadow-md border border-white/50">
                 1
               </div>
             </div>
@@ -35,7 +35,7 @@ export default function Steps() {
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative shadow-sm border border-blue-100">
               <Home className="w-12 h-12 text-primary" />
-              <div className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center font-black text-xl text-slate-900 shadow-md border border-slate-100">
+              <div className="absolute -top-2 -right-2 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center font-black text-xl text-slate-900 shadow-md border border-white/50">
                 2
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function Steps() {
           <div className="flex flex-col items-center text-center group">
             <div className="w-32 h-32 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative shadow-sm border border-blue-100">
               <Key className="w-12 h-12 text-primary" />
-              <div className="absolute -top-2 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center font-black text-xl text-slate-900 shadow-md border border-slate-100">
+              <div className="absolute -top-2 -right-2 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center font-black text-xl text-slate-900 shadow-md border border-white/50">
                 3
               </div>
             </div>

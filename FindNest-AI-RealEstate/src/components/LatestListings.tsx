@@ -21,7 +21,7 @@ export default async function LatestListings() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-transparent relative z-10">
       <div className="container mx-auto px-4 max-w-[1320px]">
         
         {/* Section Header */}
@@ -42,7 +42,7 @@ export default async function LatestListings() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {latestListings.map((listing) => (
-            <Link href={`/phong/${listing.id}`} key={listing.id} className="group flex flex-col sm:flex-row bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 h-full">
+            <Link href={`/phong/${listing.id}`} key={listing.id} className="group flex flex-col sm:flex-row bg-white/60 backdrop-blur-xl rounded-3xl border border-white/60 overflow-hidden hover:shadow-[0_20px_60px_-15px_rgba(79,70,229,0.15)] hover:-translate-y-1 transition-all duration-300 h-full">
               
               {/* Image (Left side on desktop, top on mobile) */}
               <div className="w-full sm:w-2/5 shrink-0 relative aspect-video sm:aspect-auto sm:h-full overflow-hidden bg-slate-100">

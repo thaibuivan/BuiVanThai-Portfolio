@@ -74,7 +74,7 @@ export default function SearchFilter({
   ];
 
   return (
-    <div className="relative z-50 bg-white/80 backdrop-blur-xl p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-[0_20px_60px_rgba(29,78,216,0.12)] border border-white/50 w-full max-w-5xl mx-auto">
+    <div className="relative z-50 bg-white/60 backdrop-blur-2xl p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white w-full max-w-5xl mx-auto ring-1 ring-white/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(29,78,216,0.15)]">
       <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
         <div className="col-span-2 md:col-span-1">
           <MultiSelect

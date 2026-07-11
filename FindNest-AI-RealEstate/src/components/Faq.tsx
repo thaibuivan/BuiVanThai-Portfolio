@@ -30,7 +30,7 @@ export default function Faq() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-slate-50">
+    <section className="py-16 md:py-24 bg-transparent relative z-10">
       <div className="container mx-auto px-4 max-w-3xl">
         
         <div className="text-center mb-12">
@@ -46,7 +46,7 @@ export default function Faq() {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-2xl border transition-colors duration-300 ${openIndex === index ? 'border-primary/50 shadow-md' : 'border-slate-200'}`}
+              className={`bg-white/60 backdrop-blur-xl rounded-2xl border transition-colors duration-300 ${openIndex === index ? 'border-primary/50 shadow-md' : 'border-white/50'}`}
             >
               <button 
                 className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
