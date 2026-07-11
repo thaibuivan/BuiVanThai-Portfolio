@@ -75,8 +75,8 @@ export default function SearchFilter({
 
   return (
     <div className="relative z-50 bg-white/60 backdrop-blur-2xl p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white w-full max-w-5xl mx-auto ring-1 ring-white/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(29,78,216,0.15)]">
-      <div className="grid grid-cols-2 lg:flex gap-3">
-        <div className="col-span-2 lg:w-48 shrink-0">
+      <div className="grid grid-cols-2 lg:grid-cols-[1.2fr_1.5fr_1fr_1fr_1.2fr_auto] gap-3">
+        <div className="col-span-2 lg:col-span-1 min-w-0">
           <MultiSelect
             options={districtOptions}
             selectedValues={district}
@@ -86,7 +86,7 @@ export default function SearchFilter({
           />
         </div>
 
-        <div className="col-span-1 lg:flex-1 min-w-0">
+        <div className="col-span-1 lg:col-span-1 min-w-0">
           <MultiSelect
             options={roomTypeOptions}
             selectedValues={roomType}
@@ -96,7 +96,7 @@ export default function SearchFilter({
           />
         </div>
 
-        <div className="col-span-1 lg:w-36 shrink-0">
+        <div className="col-span-1 lg:col-span-1 min-w-0">
           <MultiSelect
             options={priceOptions}
             selectedValues={price}
@@ -106,7 +106,7 @@ export default function SearchFilter({
           />
         </div>
 
-        <div className="col-span-1 lg:w-36 shrink-0">
+        <div className="col-span-1 lg:col-span-1 min-w-0">
           <MultiSelect
             options={areaOptions}
             selectedValues={area}
@@ -116,7 +116,7 @@ export default function SearchFilter({
           />
         </div>
 
-        <div className="col-span-1 lg:w-44 shrink-0">
+        <div className="col-span-1 lg:col-span-1 min-w-0">
           <MultiSelect
             options={bedroomOptions}
             selectedValues={bedrooms}
@@ -126,10 +126,10 @@ export default function SearchFilter({
           />
         </div>
 
-        <div className="col-span-2 lg:w-auto shrink-0">
+        <div className="col-span-2 lg:col-span-1 shrink-0">
           <button 
             onClick={handleSearch}
-            className="h-12 w-full lg:w-auto px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all flex items-center justify-center shadow-md shadow-primary/30 relative overflow-hidden group"
+            className="h-12 w-full px-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all flex items-center justify-center shadow-md shadow-primary/30 relative overflow-hidden group"
           >
             <div className="absolute inset-0 w-full h-full bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></div>
             <Search className="w-5 h-5 md:mr-2 relative z-10" />
