@@ -86,7 +86,7 @@ export default async function SearchResultsPage({
             Kết quả tìm kiếm
           </h1>
           
-          <div className="mb-8">
+          <div className="relative z-50 mb-8">
             <SearchFilter 
               initialDistrict={district || ""}
               initialRoomType={roomType || ""}
