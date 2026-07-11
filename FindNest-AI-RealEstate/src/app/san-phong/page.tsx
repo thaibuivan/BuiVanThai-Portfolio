@@ -29,14 +29,12 @@ export default function ChatPage() {
   const [input, setInput] = useState("");
   const isLoading = status === 'in_progress' || status === 'submitted';
 
-  // Fetch session and chats on mount
   useEffect(() => {
-    const fetchSessionAndChats = async () => {
-      const supabase = createClient();
-      const { data: { session } } = await supabase.auth.getSession();
-      setSession(session);
+    const supabase = createClient();
 
-      if (session?.user) {
+    const loadData = async (currentSession: any) => {
+      setSession(currentSession);
+      if (currentSession?.user) {
         const { data, error } = await supabase
           .from('chats')
           .select('*')
@@ -45,11 +43,23 @@ export default function ChatPage() {
         if (!error && data) {
           setChatHistory(data);
         }
+      } else {
+        setChatHistory([]);
       }
       setIsLoadingHistory(false);
     };
 
-    fetchSessionAndChats();
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      loadData(session);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      loadData(session);
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value);
