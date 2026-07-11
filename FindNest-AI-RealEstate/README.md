@@ -1,5 +1,7 @@
 # FindNest AI Real Estate Agent 🏡✨
 
+**🚀 Live Demo:** [https://findnest-ai.vercel.app](https://findnest-ai.vercel.app)
+
 FindNest is an intelligent, agent-driven real estate platform designed to revolutionize the way people search for apartments and rooms in Hanoi. Built on a modern tech stack, it integrates AI to provide a conversational, highly contextual, and personalized room-hunting experience.
 
 ## 🌟 Key Features
