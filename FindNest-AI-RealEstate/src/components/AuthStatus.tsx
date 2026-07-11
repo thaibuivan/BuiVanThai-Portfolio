@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
 import { LogIn, User, LogOut, Heart } from "lucide-react";
 
@@ -10,6 +10,7 @@ export default function AuthStatus() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const supabase = createClient();
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
@@ -25,6 +26,7 @@ export default function AuthStatus() {
   }, []);
 
   const handleLogout = async () => {
+    const supabase = createClient();
     await supabase.auth.signOut();
   };
 
