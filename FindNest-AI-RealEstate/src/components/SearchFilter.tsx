@@ -75,7 +75,7 @@ export default function SearchFilter({
 
   return (
     <div className="relative z-50 bg-white/60 backdrop-blur-2xl p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white w-full max-w-5xl mx-auto ring-1 ring-white/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(29,78,216,0.15)]">
-      <div className="grid grid-cols-2 lg:grid-cols-[1.2fr_1.5fr_1fr_1fr_1.2fr_auto] gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-[repeat(5,1fr)_auto] gap-3">
         <div className="col-span-2 lg:col-span-1 min-w-0">
           <MultiSelect
             options={districtOptions}
@@ -121,7 +121,7 @@ export default function SearchFilter({
             options={bedroomOptions}
             selectedValues={bedrooms}
             onChange={setBedrooms}
-            placeholder="Số phòng ngủ"
+            placeholder="Phòng ngủ"
             icon={<Bed className="w-4 h-4" />}
           />
         </div>
