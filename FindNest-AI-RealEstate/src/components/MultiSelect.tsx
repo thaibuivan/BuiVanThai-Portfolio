@@ -59,18 +59,18 @@ export default function MultiSelect({
   return (
     <div className={cn("relative w-full", className)} ref={containerRef}>
       <div
-        className="w-full h-12 pl-10 pr-4 bg-slate-50 hover:bg-slate-100/50 border border-transparent rounded-xl text-sm font-medium text-slate-700 flex items-center justify-between cursor-pointer transition-colors shadow-inner relative group"
+        className="w-full h-12 pl-8 pr-2.5 bg-slate-50 hover:bg-slate-100/50 border border-transparent rounded-xl text-sm font-medium text-slate-700 flex items-center justify-between cursor-pointer transition-colors shadow-inner relative group"
         onClick={() => setIsOpen(!isOpen)}
       >
         {icon && (
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+          <div className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400">
             {icon}
           </div>
         )}
         <div className="flex items-center gap-2 overflow-hidden w-full">
           <span className="truncate">{displayValue}</span>
         </div>
-        <ChevronDown className={cn("w-4 h-4 text-slate-400 transition-transform shrink-0 ml-2", isOpen && "rotate-180")} />
+        <ChevronDown className={cn("w-4 h-4 text-slate-400 transition-transform shrink-0 ml-1", isOpen && "rotate-180")} />
       </div>
 
       {isOpen && (

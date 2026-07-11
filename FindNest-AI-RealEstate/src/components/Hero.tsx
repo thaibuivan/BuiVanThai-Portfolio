@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="relative pt-[120px] pb-24 md:pt-[160px] md:pb-32 overflow-hidden bg-transparent">
 
-      <div className="container mx-auto px-4 max-w-[1000px] relative z-10 text-center">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10 text-center">
         
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/70 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-8 mx-auto hover:shadow-[0_8px_30px_rgba(59,130,246,0.12)] hover:-translate-y-0.5 transition-all cursor-pointer">
