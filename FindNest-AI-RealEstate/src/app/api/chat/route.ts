@@ -52,7 +52,6 @@ Hãy luôn vui vẻ, xưng hô "mình" và "bạn", dùng nhiều emoji phù h�
   try {
     const result = await streamText({
       model: google('gemini-2.5-flash'),
-      maxSteps: 5,
       system: systemInstruction,
       messages: await convertToModelMessages(messages),
       tools: {
@@ -97,7 +96,7 @@ Hãy luôn vui vẻ, xưng hô "mình" và "bạn", dùng nhiều emoji phù h�
           }
         })
       },
-      onFinish: async (event) => {
+      onFinish: async (event: any) => {
         if (user && chatId && event.text) {
           await supabase.from('messages').insert({
             chat_id: chatId,
