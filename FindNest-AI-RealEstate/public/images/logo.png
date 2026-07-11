@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-S85TTZNKTL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S85TTZNKTL');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Homeseeker - Tìm phòng trọ, nhà thuê nhanh chóng, uy tín tại Việt Nam">
+    <title>Không tìm thấy - Tìm phòng trọ uy tín</title>
+    <meta name="csrf-token" content="">
+    <link rel="icon" type="image/png" href="https://homeseeker.vn/favicon.png?v=4">
+    <link rel="shortcut icon" href="https://homeseeker.vn/favicon.png?v=4">
+    <link rel="apple-touch-icon" href="https://homeseeker.vn/favicon.png?v=4">
+    <meta name="theme-color" content="#33bfff">
+
+    
+    <link rel="canonical" href="https://homeseeker.vn/assets/images/logo.png">
+
+    
+    <meta property="og:site_name" content="Homeseeker">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Homeseeker - Tìm phòng trọ uy tín tại Việt Nam">
+    <meta property="og:description" content="Hàng nghìn phòng trọ, chung cư mini, nhà nguyên căn. Kết nối trực tiếp chủ nhà — không qua trung gian.">
+    <meta property="og:image" content="https://homeseeker.vn/favicon.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://homeseeker.vn/assets/images/logo.png">
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Homeseeker - Tìm phòng trọ uy tín">
+    <meta name="twitter:description" content="Tìm phòng trọ nhanh, đúng, tin cậy.">
+    <meta name="twitter:image" content="https://homeseeker.vn/favicon.png">
+
+    
+    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+
+    
+    
+    
+    
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Homeseeker",
+        "alternateName": "Homeseeker Việt Nam",
+        "url": "https://homeseeker.vn",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://homeseeker.vn/favicon.png",
+            "width": 512,
+            "height": 512
+        },
+        "description": "Nền tảng tìm kiếm phòng trọ, nhà thuê hàng đầu Việt Nam. Kết nối người thuê và chủ nhà nhanh chóng, uy tín, miễn phí.",
+        "foundingDate": "2025",
+        "founder": {
+            "@type": "Person",
+            "@id": "https://homeseeker.vn/founder#person",
+            "name": "Trần Trung Kiên",
+            "jobTitle": "Founder & CEO",
+            "url": "https://homeseeker.vn/founder",
+            "sameAs": [
+                "https://www.facebook.com/trantrungkien30112005",
+                "https://www.linkedin.com/in/tran-trung-kien-45a16a311/",
+                "https://github.com/Harry-Kien"
+            ]
+        },
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+84-382-140-336",
+            "contactType": "customer service",
+            "availableLanguage": ["Vietnamese", "English"],
+            "areaServed": "VN",
+            "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        }],
+        "sameAs": [
+            "https://www.facebook.com/trantrungkien30112005",
+            "https://www.linkedin.com/in/tran-trung-kien-45a16a311/",
+            "https://github.com/Harry-Kien",
+            "https://zalo.me/0382140336"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hồ Chí Minh",
+            "addressRegion": "Hồ Chí Minh",
+            "addressCountry": "VN"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 10.7769,
+            "longitude": 106.7009
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Việt Nam",
+            "sameAs": "https://vi.wikipedia.org/wiki/Vi%E1%BB%87t_Nam"
+        },
+        "knowsAbout": ["phòng trọ", "nhà thuê", "chung cư mini", "nhà nguyên căn", "cho thuê phòng", "tìm phòng trọ"],
+        "slogan": "Tìm phòng trọ — Nhanh · Đúng · Tin cậy"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Homeseeker",
+        "alternateName": "Homeseeker - Tìm phòng trọ uy tín",
+        "url": "https://homeseeker.vn",
+        "inLanguage": "vi-VN",
+        "potentialAction": [{
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://homeseeker.vn/phong/tim-kiem?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Homeseeker",
+            "url": "https://homeseeker.vn"
+        }
+    }
+    </script>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           DESIGN TOKENS
+        ============================================ */
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A26;
+            --primary-glow: rgba(255,107,53,0.35);
+            --secondary: #0A0A0F;
+            --secondary-soft: #1A1A2E;
+            --accent: #FFD700;
+            --blue: #6C63FF;
+            --green: #22C55E;
+            --surface: #F8F9FA;
+            --text-muted: #6C757D;
+            --border: rgba(0,0,0,0.08);
+            --border-light: rgba(255,255,255,0.1);
+            --shadow: 0 4px 24px rgba(0,0,0,0.07);
+            --shadow-hover: 0 20px 60px rgba(255,107,53,0.2);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --light: #F5F5F7;
+        }
+
+        /* ============================================
+           RESET & BASE
+        ============================================ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+            background: #FAFAFA;
+            color: var(--secondary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            /* Sticky footer: footer luôn nằm đáy, không chừa khoảng trắng dưới (mọi thiết bị) */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        body > main { flex: 1 0 auto; }
+        body > .footer-hs { flex-shrink: 0; }
+
+        /* ============================================
+           PAGE LOADER
+        ============================================ */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            background: #0A0A0F;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .loader-logo {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -1px;
+            animation: loaderPulse 1s ease infinite;
+        }
+        .loader-logo span { color: var(--primary); }
+        .loader-bar-wrap {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .loader-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+            animation: loaderFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes loaderFill {
+            0% { width: 0%; }
+            60% { width: 80%; }
+            100% { width: 100%; }
+        }
+        @keyframes loaderPulse {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+
+
+        /* ============================================
+           NAVBAR
+        ============================================ */
+        .navbar-hs {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: saturate(180%) blur(24px);
+            -webkit-backdrop-filter: saturate(180%) blur(24px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        .navbar-hs.scrolled {
+            padding: 8px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.95);
+        }
+        .navbar-brand-hs {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary) !important;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: var(--transition);
+        }
+        .navbar-brand-hs:hover { transform: scale(1.03); }
+        .navbar-brand-hs span { color: var(--secondary); }
+        .nav-link-hs {
+            color: var(--secondary) !important;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 14px !important;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            position: relative;
+        }
+        .nav-link-hs::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 14px; right: 14px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 1px;
+            transform: scaleX(0);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .nav-link-hs:hover::after { transform: scaleX(1); }
+        .nav-link-hs:hover { color: var(--primary) !important; }
+        .btn-nav-post {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff !important;
+            font-weight: 700;
+            padding: 9px 22px !important;
+            border-radius: 10px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-nav-post::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-nav-post:hover::before { left: 100%; }
+        .btn-nav-post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,107,53,0.45);
+        }
+
+        /* ============================================
+           BUTTONS
+        ============================================ */
+        .btn-primary-hs {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            padding: 13px 30px;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(255,107,53,0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary-hs::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .btn-primary-hs:hover { color: #fff; transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 50px rgba(255,107,53,0.45); }
+        .btn-primary-hs:hover::after { opacity: 1; }
+        .btn-outline-hs {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            padding: 11px 28px;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-outline-hs::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .btn-outline-hs span, .btn-outline-hs i { position: relative; z-index: 1; }
+        .btn-outline-hs:hover::before { transform: scaleX(1); }
+        .btn-outline-hs:hover { color: #fff; transform: translateY(-2px); }
+
+        /* ============================================
+           ROOM CARD — Premium
+        ============================================ */
+        .room-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition-smooth);
+            border: 1px solid var(--border);
+            height: 100%;
+            position: relative;
+        }
+        .room-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, var(--primary), var(--blue)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .room-card:hover::before { opacity: 1; }
+        .room-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+        }
+        .room-card-img {
+            height: 210px;
+            object-fit: cover;
+            width: 100%;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .room-card:hover .room-card-img { transform: scale(1.08); }
+        .room-card-img-wrap { overflow: hidden; position: relative; }
+        .room-card-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .room-card:hover .room-card-img-wrap::after { opacity: 1; }
+        .room-badge {
+            position: absolute;
+            top: 12px; left: 12px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            backdrop-filter: blur(8px);
+        }
+        .room-badge-featured {
+            background: rgba(255,215,0,0.95);
+            color: #7a5a00;
+        }
+        .room-card-body { padding: 18px; }
+        .room-price {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .room-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--secondary);
+            margin: 6px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+        .room-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .room-meta i { color: var(--primary); }
+
+        /* ============================================
+           SECTION STYLES
+        ============================================ */
+        .section-title {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,107,53,0.1);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255,107,53,0.2);
+        }
+
+        /* ============================================
+           SCROLL-REVEAL Utility
+        ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-left.revealed { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-right.revealed { opacity: 1; transform: translateX(0); }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .reveal-scale.revealed { opacity: 1; transform: scale(1); }
+
+        /* Stagger delays */
+        .stagger-1 { transition-delay: 0.05s !important; }
+        .stagger-2 { transition-delay: 0.12s !important; }
+        .stagger-3 { transition-delay: 0.19s !important; }
+        .stagger-4 { transition-delay: 0.26s !important; }
+        .stagger-5 { transition-delay: 0.33s !important; }
+        .stagger-6 { transition-delay: 0.40s !important; }
+        .stagger-7 { transition-delay: 0.47s !important; }
+        .stagger-8 { transition-delay: 0.54s !important; }
+
+        /* ============================================
+           COUNTER ANIMATION
+        ============================================ */
+        .count-up { display: inline-block; }
+
+        /* ============================================
+           ALERTS
+        ============================================ */
+        .alert-hs {
+            border: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.92rem;
+            font-weight: 500;
+            animation: slideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ============================================
+           TOAST NOTIFICATIONS
+        ============================================ */
+        .toast-container-hs {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .toast-hs {
+            background: #fff;
+            border-radius: 14px;
+            padding: 14px 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 280px;
+            max-width: 380px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-left: 4px solid var(--primary);
+            animation: toastIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .toast-hs.success { border-left-color: var(--green); }
+        .toast-hs.error { border-left-color: #ef4444; }
+        .toast-hs i { font-size: 1.2rem; }
+        .toast-hs.success i { color: var(--green); }
+        .toast-hs.error i { color: #ef4444; }
+        @keyframes toastIn {
+            from { transform: translateX(120%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes toastOut {
+            to { transform: translateX(120%); opacity: 0; }
+        }
+        .toast-hs.removing { animation: toastOut 0.4s ease forwards; }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer-hs {
+            background: linear-gradient(180deg, #0A0A0F, #1A1A2E);
+            color: rgba(255,255,255,0.7);
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-hs::before {
+            content: '';
+            position: absolute;
+            top: -200px; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 400px;
+            background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .footer-brand {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+        }
+        .footer-brand span { color: var(--primary); }
+        .footer-link {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-link:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+        .footer-divider { border-color: rgba(255,255,255,0.08); margin: 40px 0 24px; }
+
+        /* ============================================
+           SCROLLBAR CUSTOM
+        ============================================ */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--primary), var(--blue)); border-radius: 4px; }
+
+        /* ============================================
+           MOBILE
+        ============================================ */
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.7rem; }
+        }
+
+        /* ============================================
+           MOBILE BOTTOM NAVIGATION BAR
+        ============================================ */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: saturate(180%) blur(24px);
+            -webkit-backdrop-filter: saturate(180%) blur(24px);
+            border-top: 1px solid rgba(0,0,0,0.06);
+            z-index: 9998;
+            padding: 0;
+            padding-bottom: env(safe-area-inset-bottom, 0);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+        }
+        @media (max-width: 991.98px) {
+            .mobile-bottom-nav { display: flex; }
+            body {
+                padding-bottom: 72px;
+            }
+            .footer-hs {
+                padding-bottom: 100px;
+            }
+        }
+        .mobile-bottom-nav-inner {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #6C757D;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 8px 0 6px;
+            flex: 1;
+            transition: color 0.25s ease;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-nav-item i {
+            font-size: 1.15rem;
+            margin-bottom: 3px;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .mobile-nav-item.active {
+            color: var(--primary);
+        }
+        .mobile-nav-item.active i {
+            transform: scale(1.15);
+        }
+        .mobile-nav-item.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 0 0 4px 4px;
+        }
+        .mobile-nav-item:hover, .mobile-nav-item:focus {
+            color: var(--primary);
+        }
+        .mobile-nav-item .nav-badge-new {
+            position: absolute;
+            top: 4px;
+            right: 50%;
+            transform: translateX(calc(50% + 12px));
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.5rem;
+            font-weight: 800;
+            padding: 1px 4px;
+            border-radius: 4px;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+        }
+
+        /* Center FAB (Đăng tin) */
+        .mobile-nav-fab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-decoration: none;
+            flex: 1;
+            position: relative;
+            padding-bottom: 6px;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-nav-fab-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            box-shadow: 0 4px 18px rgba(255,107,53,0.4);
+            position: relative;
+            top: -14px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 3px solid #fff;
+        }
+        .mobile-nav-fab-btn:active {
+            transform: scale(0.92);
+        }
+        .mobile-nav-fab-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: -10px;
+        }
+
+        /* ============================================
+           MOBILE SLIDE-OUT MENU (from bottom nav More)
+        ============================================ */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+        }
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-menu-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 10001;
+            border-radius: 24px 24px 0 0;
+            max-height: 85vh;
+            overflow-y: auto;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding: 0 0 env(safe-area-inset-bottom, 16px);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+        }
+        .mobile-menu-panel.open {
+            transform: translateY(0);
+        }
+        .mobile-menu-handle {
+            display: flex;
+            justify-content: center;
+            padding: 12px 0 8px;
+        }
+        .mobile-menu-handle span {
+            width: 40px;
+            height: 4px;
+            background: #ddd;
+            border-radius: 4px;
+        }
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 20px 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .mobile-menu-header h5 {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+        .mobile-menu-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #f5f5f5;
+            color: var(--secondary);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .mobile-menu-close:hover {
+            background: #eee;
+        }
+        .mobile-menu-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            background: #fafafa;
+        }
+        .mobile-menu-user img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+        .mobile-menu-user-info .name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--secondary);
+        }
+        .mobile-menu-user-info .email {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .mobile-menu-links {
+            padding: 8px 12px;
+        }
+        .mobile-menu-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .mobile-menu-link:hover, .mobile-menu-link:active {
+            background: rgba(255,107,53,0.06);
+            color: var(--primary);
+        }
+        .mobile-menu-link i {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .mobile-menu-link .link-icon-orange { background: rgba(255,107,53,0.1); color: var(--primary); }
+        .mobile-menu-link .link-icon-blue { background: rgba(108,99,255,0.1); color: var(--blue); }
+        .mobile-menu-link .link-icon-green { background: rgba(34,197,94,0.1); color: var(--green); }
+        .mobile-menu-link .link-icon-red { background: rgba(239,68,68,0.1); color: #ef4444; }
+        .mobile-menu-link .link-icon-yellow { background: rgba(255,215,0,0.15); color: #d4a800; }
+        .mobile-menu-link .link-icon-purple { background: rgba(139,92,246,0.1); color: #8b5cf6; }
+        .mobile-menu-divider {
+            height: 1px;
+            background: rgba(0,0,0,0.05);
+            margin: 4px 12px;
+        }
+        .mobile-menu-link .new-tag {
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.55rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 6px;
+            margin-left: auto;
+            letter-spacing: 0.3px;
+        }
+        .mobile-menu-link.logout-link {
+            color: #ef4444;
+        }
+        .mobile-menu-link.logout-link:hover {
+            background: rgba(239,68,68,0.06);
+        }
+
+        /* ============================================
+           PROGRESS BAR (top of page on load)
+        ============================================ */
+        #scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--blue));
+            z-index: 99999;
+            transition: width 0.1s linear;
+        }
+
+        /* ============================================
+           GLOW EFFECT on hover
+        ============================================ */
+        .glow-on-hover {
+            position: relative;
+        }
+        .glow-on-hover::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+            opacity: 0;
+            z-index: -1;
+            filter: blur(12px);
+            transition: opacity 0.4s ease;
+        }
+        .glow-on-hover:hover::after { opacity: 0.5; }
+
+        /* ============================================
+           GRADIENT TEXT ANIMATION
+        ============================================ */
+        .gradient-text-animate {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, #ff9a9e 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s linear infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+    </style>
+
+    </head>
+<body>
+
+
+<div id="scroll-progress"></div>
+
+
+<div id="page-loader">
+    <div class="loader-logo">Home<span>seeker</span></div>
+    <div class="loader-bar-wrap">
+        <div class="loader-bar"></div>
+    </div>
+</div>
+
+
+
+<div class="toast-container-hs" id="toastContainer"></div>
+
+
+<nav class="navbar-hs" id="mainNavbar">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between gap-3">
+            
+            <a href="https://homeseeker.vn" class="navbar-brand-hs">
+                <i class="fa-solid fa-house-chimney me-1"></i>Home<span>seeker</span>
+            </a>
+
+            
+            <div class="d-none d-lg-flex align-items-center gap-1">
+                <a href="https://homeseeker.vn"       class="nav-link-hs"><i class="fas fa-home me-1"></i>Trang chủ</a>
+                <a href="https://homeseeker.vn/phong" class="nav-link-hs"><i class="fas fa-building me-1"></i>Phòng trọ</a>
+                <a href="https://homeseeker.vn/phong/gan-day" class="nav-link-hs" style="position:relative">
+                    <i class="fas fa-map-marker-alt me-1"></i>Tìm gần bạn
+                    <span style="position:absolute;top:2px;right:2px;background:#ff6b35;color:#fff;font-size:0.55rem;font-weight:800;padding:1px 5px;border-radius:6px;letter-spacing:0.5px">MỚI</span>
+                </a>
+                <a href="https://homeseeker.vn/tim-kiem-da-luu" class="nav-link-hs"><i class="fas fa-bullseye me-1"></i>Săn phòng</a>
+                <a href="https://homeseeker.vn/blog"  class="nav-link-hs"><i class="fas fa-newspaper me-1"></i>Blog</a>
+            </div>
+
+            
+            <div class="d-flex align-items-center gap-2">
+                                    <a href="https://homeseeker.vn/dang-nhap" class="nav-link-hs d-none d-md-inline">Đăng nhập</a>
+                    <a href="https://homeseeker.vn/dang-ky" class="nav-link-hs d-none d-md-inline">Đăng ký</a>
+                    <a href="https://homeseeker.vn/dang-phong" class="btn-nav-post nav-link-hs"
+                       onclick="event.preventDefault(); window.location='https://homeseeker.vn/dang-nhap?redirect=https%3A%2F%2Fhomeseeker.vn%2Fdang-phong'">
+                        <i class="fas fa-plus me-1"></i>Đăng tin miễn phí
+                    </a>
+                            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<main>
+    <div class="container py-5">
+    <div style="max-width:500px;margin:80px auto;text-align:center">
+        <div style="font-size:5rem;margin-bottom:16px">🏚️</div>
+        <h2 style="font-weight:700;margin-bottom:8px">Không tìm thấy trang</h2>
+        <p style="color:var(--text-muted);margin-bottom:24px">
+            Trang bạn tìm không tồn tại hoặc đã bị xóa.
+        </p>
+        <a href="https://homeseeker.vn" style="display:inline-block;padding:12px 32px;background:var(--gradient);color:#fff;border-radius:12px;font-weight:600;text-decoration:none;font-size:1rem">
+            <i class="fas fa-home me-2"></i>Về trang chủ
+        </a>
+    </div>
+</div>
+</main>
+
+
+<footer class="footer-hs">
+    <div class="container">
+        <div class="row g-4">
+
+            
+            <div class="col-lg-4 reveal">
+                <div class="footer-brand mb-3">
+                    <i class="fa-solid fa-house-chimney me-2"></i>Home<span>seeker</span>
+                </div>
+                <p style="font-size:0.9rem;line-height:1.85;color:rgba(255,255,255,0.6)">
+                    Nền tảng tìm kiếm phòng trọ, nhà thuê hàng đầu Việt Nam.<br>
+                    Kết nối người thuê và chủ nhà nhanh chóng, uy tín, miễn phí.
+                </p>
+                <div class="d-flex gap-3 mt-4">
+                    <a href="https://www.facebook.com/trantrungkien30112005" target="_blank" rel="me noopener" class="footer-social" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/tran-trung-kien-45a16a311/" target="_blank" rel="me noopener" class="footer-social" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Harry-Kien" target="_blank" rel="me noopener" class="footer-social" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://zalo.me/0382140336" target="_blank" rel="noopener" class="footer-social" title="Zalo">
+                        <span style="font-weight:900;font-size:0.9rem">Z</span>
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="col-6 col-lg-2 reveal stagger-2">
+                <h6 class="text-white fw-700 mb-3">Khám phá</h6>
+                <a href="https://homeseeker.vn/phong"  class="footer-link">🏠 Phòng trọ</a>
+                <a href="https://homeseeker.vn/tro-gan" class="footer-link">🎓 Trọ gần trường ĐH</a>
+                <a href="https://homeseeker.vn/blog"   class="footer-link">📝 Blog tư vấn</a>
+                <a href="https://homeseeker.vn/hoi-dap"          class="footer-link">❓ Hỏi đáp</a>
+                <a href="https://homeseeker.vn/ve-chung-toi"        class="footer-link">ℹ️ Về Homeseeker</a>
+                <a href="https://homeseeker.vn/founder"      class="footer-link">👤 Người sáng lập</a>
+                <a href="https://homeseeker.vn/dang-phong" class="footer-link">📌 Đăng tin miễn phí</a>
+            </div>
+
+            
+            <div class="col-6 col-lg-2 reveal stagger-3">
+                <h6 class="text-white fw-700 mb-3">Tài khoản</h6>
+                <a href="https://homeseeker.vn/dang-nhap"    class="footer-link">Đăng nhập</a>
+                <a href="https://homeseeker.vn/dang-ky" class="footer-link">Đăng ký</a>
+                <a href="https://homeseeker.vn/phong-cua-toi"  class="footer-link">Phòng của tôi</a>
+                <a href="https://homeseeker.vn/phong-yeu-thich" class="footer-link">Phòng yêu thích</a>
+            </div>
+
+            
+            <div class="col-lg-4 reveal stagger-4">
+                <h6 class="text-white fw-700 mb-3">Liên hệ</h6>
+                <div class="footer-contact-list">
+                    <div class="footer-contact-item">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <a href="https://homeseeker.vn/founder" style="color:#fff;font-weight:700;text-decoration:none">Trần Trung Kiên</a>
+                            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45)">Người sáng lập</div>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:0382140336" style="color:rgba(255,255,255,0.75);text-decoration:none" class="footer-contact-link">0382.140.336</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:kientrantrung3@gmail.com" style="color:rgba(255,255,255,0.75);text-decoration:none" class="footer-contact-link">kientrantrung3@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>TP. Hồ Chí Minh, Việt Nam</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Hỗ trợ: 8:00 – 22:00 (Thứ 2 – CN)</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr class="footer-divider">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <p class="mb-0" style="font-size:0.85rem;color:rgba(255,255,255,0.5)">
+                © 2026 Homeseeker. Made with <i class="fas fa-heart text-danger mx-1"></i> in Vietnam
+            </p>
+            <div class="d-flex gap-3">
+                <a href="https://homeseeker.vn/dieu-khoan" class="footer-link mb-0" style="display:inline;font-size:0.82rem">Điều khoản</a>
+                <a href="https://homeseeker.vn/chinh-sach-bao-mat" class="footer-link mb-0" style="display:inline;font-size:0.82rem">Chính sách bảo mật</a>
+                <a href="https://homeseeker.vn/hoi-dap" class="footer-link mb-0" style="display:inline;font-size:0.82rem">Hỏi đáp</a>
+                <a href="https://homeseeker.vn/ve-chung-toi" class="footer-link mb-0" style="display:inline;font-size:0.82rem">Về chúng tôi</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+    <div class="mobile-bottom-nav-inner">
+        
+        <a href="https://homeseeker.vn" class="mobile-nav-item " id="mob-nav-home">
+            <i class="fas fa-home"></i>
+            <span>Trang chủ</span>
+        </a>
+
+        
+        <a href="https://homeseeker.vn/phong" class="mobile-nav-item " id="mob-nav-rooms">
+            <i class="fas fa-building"></i>
+            <span>Phòng trọ</span>
+        </a>
+
+        
+                    <a href="https://homeseeker.vn/dang-nhap" class="mobile-nav-fab" id="mob-nav-post">
+                <div class="mobile-nav-fab-btn">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <span class="mobile-nav-fab-label">Đăng tin</span>
+            </a>
+        
+        
+        <a href="https://homeseeker.vn/phong/gan-day" class="mobile-nav-item " id="mob-nav-nearby">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Gần bạn</span>
+            <span class="nav-badge-new">MỚI</span>
+        </a>
+
+        
+        <button class="mobile-nav-item" id="mob-nav-menu" onclick="openMobileMenu()" style="border:none;background:none;cursor:pointer">
+                            <i class="fas fa-bars"></i>
+                <span>Menu</span>
+                    </button>
+    </div>
+</nav>
+
+
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu-panel" id="mobileMenuPanel">
+    <div class="mobile-menu-handle"><span></span></div>
+    <div class="mobile-menu-header">
+        <h5><i class="fa-solid fa-house-chimney me-2" style="color:var(--primary)"></i>Homeseeker</h5>
+        <button class="mobile-menu-close" onclick="closeMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    
+    <div class="mobile-menu-links">
+        
+        <a href="https://homeseeker.vn" class="mobile-menu-link">
+            <i class="fas fa-home link-icon-orange"></i>
+            <span>Trang chủ</span>
+        </a>
+        <a href="https://homeseeker.vn/phong" class="mobile-menu-link">
+            <i class="fas fa-building link-icon-blue"></i>
+            <span>Phòng trọ</span>
+        </a>
+        <a href="https://homeseeker.vn/phong/gan-day" class="mobile-menu-link">
+            <i class="fas fa-map-marker-alt link-icon-green"></i>
+            <span>Tìm phòng gần bạn</span>
+            <span class="new-tag">MỚI</span>
+        </a>
+        <a href="https://homeseeker.vn/tim-kiem-da-luu" class="mobile-menu-link">
+            <i class="fas fa-bullseye link-icon-orange"></i>
+            <span>Săn phòng</span>
+        </a>
+        <a href="https://homeseeker.vn/blog" class="mobile-menu-link">
+            <i class="fas fa-newspaper link-icon-purple"></i>
+            <span>Blog tư vấn</span>
+        </a>
+
+        <div class="mobile-menu-divider"></div>
+
+                    <a href="https://homeseeker.vn/dang-nhap" class="mobile-menu-link">
+                <i class="fas fa-sign-in-alt link-icon-green"></i>
+                <span>Đăng nhập</span>
+            </a>
+            <a href="https://homeseeker.vn/dang-ky" class="mobile-menu-link">
+                <i class="fas fa-user-plus link-icon-blue"></i>
+                <span>Đăng ký tài khoản</span>
+            </a>
+            </div>
+</div>
+
+<style>
+/* Footer social icons */
+.footer-social {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.footer-social:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255,107,53,0.4);
+}
+/* Footer contact list */
+.footer-contact-list { display: flex; flex-direction: column; gap: 12px; }
+.footer-contact-item { display: flex; align-items: flex-start; gap: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+.footer-contact-item i { color: var(--primary); width: 16px; text-align: center; flex-shrink: 0; margin-top: 2px; }
+.footer-contact-link:hover { color: var(--primary) !important; }
+
+/* Fix Bootstrap pagination arrows size */
+.pagination { flex-wrap: wrap; gap: 4px; }
+.pagination .page-link {
+    color: var(--secondary);
+    border-radius: 8px !important;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-color: var(--border);
+    transition: all 0.2s;
+    line-height: 1.4;
+}
+.pagination .page-link:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.pagination .page-item.active .page-link {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.pagination .page-item.disabled .page-link {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+/* Fix large SVG arrow issue */
+.pagination .page-link svg {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Notification badge */
+.notif-badge {
+    position: absolute;
+    top: 0; right: 0;
+    min-width: 17px; height: 17px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid #fff;
+    padding: 0 3px;
+    animation: badgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes badgePop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ============================================
+   PAGE LOADER
+============================================ */
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const loader = document.getElementById('page-loader');
+        if (loader) loader.classList.add('loaded');
+    }, 800);
+});
+
+
+
+/* ============================================
+   SCROLL PROGRESS BAR
+============================================ */
+const progressBar = document.getElementById('scroll-progress');
+const mainNavbar  = document.getElementById('mainNavbar');
+window.addEventListener('scroll', () => {
+    if (progressBar) {
+        const scrolled = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        progressBar.style.width = scrolled + '%';
+    }
+    // Navbar scroll effect
+    if (mainNavbar) mainNavbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ============================================
+   SCROLL REVEAL
+============================================ */
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    revealObserver.observe(el);
+});
+
+/* ============================================
+   COUNTER ANIMATION
+============================================ */
+function animateCounter(el, target, duration = 1500) {
+    const start = performance.now();
+    const startVal = 0;
+    const isPlus = target.includes('+');
+    const num = parseInt(target.replace(/\D/g, ''));
+
+    function update(ts) {
+        const elapsed = ts - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Easing: ease-out-expo
+        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        const current = Math.floor(eased * num);
+        el.textContent = current.toLocaleString('vi-VN') + (isPlus ? '+' : '');
+        if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+            entry.target.dataset.counted = true;
+            const target = entry.target.dataset.target;
+            animateCounter(entry.target, target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.count-up').forEach(el => counterObserver.observe(el));
+
+/* ============================================
+   TOAST NOTIFICATIONS
+============================================ */
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    const icons = { success: 'fa-check-circle', error: 'fa-times-circle', warning: 'fa-exclamation-triangle' };
+    toast.className = `toast-hs ${type}`;
+    toast.innerHTML = `<i class="fas ${icons[type] || icons.success}"></i><span>${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('removing');
+        setTimeout(() => toast.remove(), 400);
+    }, 4000);
+}
+window.showToast = showToast;
+
+
+
+/* ============================================
+   SMOOTH HOVER on ROOM CARDS (tilt)
+============================================ */
+document.querySelectorAll('.room-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `translateY(-10px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) scale(1.01)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+
+/* ============================================
+   CSRF TOKEN
+============================================ */
+window.csrfToken = '';
+
+
+/* ============================================
+   MOBILE MENU OPEN/CLOSE
+============================================ */
+function openMobileMenu() {
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const panel   = document.getElementById('mobileMenuPanel');
+    if (overlay) overlay.classList.add('open');
+    if (panel)   panel.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const panel   = document.getElementById('mobileMenuPanel');
+    if (overlay) overlay.classList.remove('open');
+    if (panel)   panel.classList.remove('open');
+    document.body.style.overflow = '';
+}
+window.openMobileMenu = openMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
+
+// Swipe down to close
+(function() {
+    const panel = document.getElementById('mobileMenuPanel');
+    if (!panel) return;
+    let startY = 0, currentY = 0, isDragging = false;
+    panel.addEventListener('touchstart', e => {
+        if (panel.scrollTop > 0) return;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+    }, { passive: true });
+    panel.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        currentY = e.touches[0].clientY;
+        const diff = currentY - startY;
+        if (diff > 0) {
+            panel.style.transform = `translateY(${diff}px)`;
+            panel.style.transition = 'none';
+        }
+    }, { passive: true });
+    panel.addEventListener('touchend', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        panel.style.transition = '';
+        const diff = currentY - startY;
+        if (diff > 100) {
+            closeMobileMenu();
+        } else {
+            panel.style.transform = '';
+        }
+        currentY = 0;
+    });
+})();
+</script>
+
+
+</body>
+</html>
