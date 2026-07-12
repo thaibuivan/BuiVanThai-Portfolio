@@ -18,13 +18,6 @@ export async function POST(req: Request) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
-  // Polyfill parts for older clients or when parts is omitted to prevent convertToModelMessages crash
-  messages.forEach((m: any) => {
-    if (!m.parts && typeof m.content === 'string') {
-      m.parts = [{ type: 'text', text: m.content }];
-    }
-  });
-
   // Save user message if logged in and chatId exists
   if (user && chatId) {
     const lastMessage = messages[messages.length - 1];
