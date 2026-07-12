@@ -17,6 +17,7 @@ export default function ChatPage() {
   
   const { messages, status, sendMessage, setMessages } = useChat({
     body: { chatId },
+    maxSteps: 5,
     initialMessages: [
       {
         id: '1',
