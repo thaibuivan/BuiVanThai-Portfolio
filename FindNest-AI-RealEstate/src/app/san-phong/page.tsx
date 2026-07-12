@@ -15,7 +15,7 @@ export default function ChatPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isLoadingHistory, setIsLoadingHistory] = useState(true);
   
-  const { messages, status, append, setMessages } = useChat({
+  const { messages, status, sendMessage, setMessages } = useChat({
     body: { chatId },
     initialMessages: [
       {
@@ -89,10 +89,10 @@ export default function ChatPage() {
       }
     }
 
-    // Call append, we don't need to pass body explicitly in append because useChat handles it,
+    // Call sendMessage, we don't need to pass body explicitly in sendMessage because useChat handles it,
     // BUT we just updated `chatId` state. useChat body might not update synchronously.
     // However, @ai-sdk/react useChat automatically picks up the latest `body` reference on submit.
-    append({ role: 'user', content: input }, { body: { chatId: activeChatId }});
+    sendMessage({ role: 'user', content: input }, { body: { chatId: activeChatId }});
     setInput("");
   };
 
