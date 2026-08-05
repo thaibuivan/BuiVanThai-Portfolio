@@ -1,0 +1,15 @@
+.env
+.venv
+__pycache__
+*.pyc
+.git
+data/*.xlsx
+data/*.xlsm
+data/*.csv
+data/*.log
+data/gmail_token.json
+data/drive_file_id.txt
+data/telegram_offset.txt
+data/raw_emails
+config/google_credentials.json
+config/*.json
