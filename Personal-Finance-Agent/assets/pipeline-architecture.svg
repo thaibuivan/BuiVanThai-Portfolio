@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="720" viewBox="0 0 1160 720" role="img">
+  <title>pipeline-architecture.svg</title>
+  <rect width="1160" height="720" fill="#f8fafc"/>
+  <style>
+    .title { font: 700 30px Arial, sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 15px Arial, sans-serif; fill: #475569; }
+    .label { font: 600 13px Arial, sans-serif; fill: #334155; }
+    .small { font: 400 12px Arial, sans-serif; fill: #64748b; }
+    .value { font: 700 24px Arial, sans-serif; fill: #0f172a; }
+    .axis { stroke: #cbd5e1; stroke-width: 1; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+    .panel { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; rx: 14; }
+  </style>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker></defs>
+<text x="44.0" y="58.0" class="title" text-anchor="start">System Architecture</text>
+<text x="44.0" y="84.0" class="subtitle" text-anchor="start">Free-friendly workflow for personal finance automation</text>
+<rect x="60.0" y="190.0" width="150.0" height="96.0" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="78.0" y="226.0" class="label" text-anchor="start">Gmail</text>
+<text x="78.0" y="252.0" class="small" text-anchor="start">Bank notification emails</text>
+<text x="78.0" y="270.0" class="small" text-anchor="start"></text>
+<line x1="210" y1="238" x2="242" y2="398" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="242.0" y="350.0" width="150.0" height="96.0" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="260.0" y="386.0" class="label" text-anchor="start">Parser</text>
+<text x="260.0" y="412.0" class="small" text-anchor="start">Extract amount, time, co</text>
+<text x="260.0" y="430.0" class="small" text-anchor="start">ntent</text>
+<line x1="392" y1="398" x2="424" y2="238" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="424.0" y="190.0" width="150.0" height="96.0" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="442.0" y="226.0" class="label" text-anchor="start">Sheets</text>
+<text x="442.0" y="252.0" class="small" text-anchor="start">Transactions as source o</text>
+<text x="442.0" y="270.0" class="small" text-anchor="start">f truth</text>
+<line x1="574" y1="238" x2="606" y2="398" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="606.0" y="350.0" width="150.0" height="96.0" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="624.0" y="386.0" class="label" text-anchor="start">Rules</text>
+<text x="624.0" y="412.0" class="small" text-anchor="start">Category and cashflow lo</text>
+<text x="624.0" y="430.0" class="small" text-anchor="start">gic</text>
+<line x1="756" y1="398" x2="788" y2="238" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="788.0" y="190.0" width="150.0" height="96.0" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="806.0" y="226.0" class="label" text-anchor="start">Telegram</text>
+<text x="806.0" y="252.0" class="small" text-anchor="start">Human review and command</text>
+<text x="806.0" y="270.0" class="small" text-anchor="start">s</text>
+<line x1="938" y1="238" x2="970" y2="398" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="970.0" y="350.0" width="150.0" height="96.0" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="988.0" y="386.0" class="label" text-anchor="start">Gemini</text>
+<text x="988.0" y="412.0" class="small" text-anchor="start">Privacy-safe natural Q&amp;A</text>
+<text x="988.0" y="430.0" class="small" text-anchor="start"></text>
+<rect x="80.0" y="540.0" width="1000.0" height="110.0" rx="14" fill="#eff6ff" stroke="#bfdbfe"/>
+<text x="112.0" y="580.0" class="label" text-anchor="start">Privacy boundary</text>
+<text x="112.0" y="612.0" class="subtitle" text-anchor="start">Raw Gmail content and credentials stay out of public demos. Gemini receives only sanitized aggregates.</text>
+</svg>

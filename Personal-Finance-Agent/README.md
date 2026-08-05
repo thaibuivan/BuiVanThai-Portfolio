@@ -63,6 +63,16 @@ sample_data/mock_bank_emails/
 
 Do not use real bank data, Gmail screenshots, tokens, or OAuth credentials in public screenshots.
 
+## Demo Screenshots
+
+The following images are generated from synthetic data in `sample_data/`.
+
+![Dashboard demo](assets/dashboard-demo.svg)
+
+![Telegram demo](assets/telegram-demo.svg)
+
+![Pipeline architecture](assets/pipeline-architecture.svg)
+
 ## Telegram Commands
 
 The bot supports commands such as:
