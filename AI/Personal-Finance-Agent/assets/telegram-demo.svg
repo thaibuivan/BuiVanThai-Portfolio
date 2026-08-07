@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="820" viewBox="0 0 760 820" role="img">
+  <title>telegram-demo.svg</title>
+  <rect width="760" height="820" fill="#f8fafc"/>
+  <style>
+    .title { font: 700 30px Arial, sans-serif; fill: #0f172a; }
+    .subtitle { font: 400 15px Arial, sans-serif; fill: #475569; }
+    .label { font: 600 13px Arial, sans-serif; fill: #334155; }
+    .small { font: 400 12px Arial, sans-serif; fill: #64748b; }
+    .value { font: 700 24px Arial, sans-serif; fill: #0f172a; }
+    .axis { stroke: #cbd5e1; stroke-width: 1; }
+    .grid { stroke: #e2e8f0; stroke-width: 1; }
+    .panel { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; rx: 14; }
+  </style>
+<rect x="0.0" y="0.0" width="760.0" height="820.0" rx="0" fill="#d9fdd3" stroke="none"/>
+<rect x="0.0" y="0.0" width="760.0" height="72.0" rx="0" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="28.0" y="45.0" class="label" text-anchor="start">Thai Finance Agent</text>
+<text x="650.0" y="45.0" class="small" text-anchor="start">bot</text>
+<rect x="42.0" y="112.0" width="500.0" height="112.0" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="64.0" y="146.0" class="subtitle" text-anchor="start">Need review: 120,000 VND at UNKNOWN SHOP DEMO. Choose a</text>
+<text x="64.0" y="168.0" class="subtitle" text-anchor="start">category to include it in the dashboard.</text>
+<rect x="368.0" y="254.0" width="332.0" height="54.0" rx="16" fill="#dcf8c6" stroke="#cbd5e1"/>
+<text x="390.0" y="288.0" class="subtitle" text-anchor="start">Ăn uống</text>
+<rect x="42.0" y="350.0" width="548.0" height="152.0" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="64.0" y="384.0" class="subtitle" text-anchor="start">Updated. August living spend is 3,826,000 VND across 10</text>
+<text x="64.0" y="406.0" class="subtitle" text-anchor="start">transactions. Biggest category is Housing at 2,500,000</text>
+<text x="64.0" y="428.0" class="subtitle" text-anchor="start">VND.</text>
+<rect x="310.0" y="540.0" width="390.0" height="54.0" rx="16" fill="#dcf8c6" stroke="#cbd5e1"/>
+<text x="332.0" y="574.0" class="subtitle" text-anchor="start">chi tiêu tháng 8 của tôi</text>
+<rect x="42.0" y="632.0" width="568.0" height="116.0" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="64.0" y="666.0" class="subtitle" text-anchor="start">Month 2026-08: living spend 3,826,000 VND, income</text>
+<text x="64.0" y="688.0" class="subtitle" text-anchor="start">16,000,000 VND, net cashflow 12,174,000 VND. Answered with</text>
+<text x="64.0" y="710.0" class="subtitle" text-anchor="start">Gemini using sanitized metrics.</text>
+</svg>

@@ -5,6 +5,7 @@ Projects on Data Science, Time Series, Applied AI, and Risk Analytics by Bui Van
 
 - `AI/`: AI and product-focused projects
   - `AI/FindNest-AI-RealEstate`
+  - `AI/Personal-Finance-Agent`
 - `DS/`: Data science and analytics projects
   - `DS/ML-Time-Series-Backtesting`
   - `DS/Portfolio-Optimization`
