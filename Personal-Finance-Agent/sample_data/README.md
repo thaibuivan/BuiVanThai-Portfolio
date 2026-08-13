@@ -17,6 +17,7 @@ The mock data intentionally includes:
 - Income.
 - Debt cashflows: borrowed money, principal repayment, money lent to others, loan collection.
 - Internal transfer and savings/investment rows that should not count as living expense.
+- A shared bill example where `amount` is the bank transaction total but `personal_amount` is the user's real spending share.
 - A few `needs_review` rows to demonstrate human-in-the-loop classification.
 - Multiple months so the bot can answer month-specific questions such as `report thang 7` or `chi tieu thang 8`.
 
@@ -27,6 +28,13 @@ Names, account fragments, email IDs, message IDs, and transaction IDs are fake. 
 ## Import Note
 
 The CSV uses plain numeric `amount` values and comma-free snippets so it can be imported directly into Google Sheets without shifting columns.
+
+For shared expenses:
+
+- `amount`: total money paid from the bank account.
+- `personal_amount`: amount counted in the user's spending dashboard.
+- `reimbursable_amount`: amount expected back from other people.
+- `split_note`: audit note explaining the split.
 
 Recommended import target:
 

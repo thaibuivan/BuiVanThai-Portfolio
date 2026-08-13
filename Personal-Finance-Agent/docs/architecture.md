@@ -82,6 +82,24 @@ Debt-related transfers are separated from normal living expenses to avoid double
 
 The dashboard can show both living expense and debt movement without mixing them.
 
+### Shared expenses
+
+Some payments are made for multiple people, for example a restaurant bill paid by one person and later reimbursed by friends. The system keeps two numbers:
+
+- `amount`: the total bank transaction amount.
+- `personal_amount`: the part counted as the user's real personal spending.
+
+If `personal_amount` is blank, dashboards use `amount` as before. If `personal_amount` is set, category totals, daily spend, and Telegram category summaries use `personal_amount` to avoid overstating personal expense.
+
+Telegram command:
+
+```text
+/split latest 2
+/split 120000 3
+```
+
+This records `shared_with_count`, `reimbursable_amount`, and `split_note` on the transaction row.
+
 ### Telegram bot
 
 The bot supports two interaction modes:
@@ -141,4 +159,3 @@ For a Data Science CV, present this as an applied data product:
 - Privacy-safe LLM integration.
 - Monthly analytics and explainable financial summaries.
 - Evaluation plan for extraction accuracy and category classification.
-

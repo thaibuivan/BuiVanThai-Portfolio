@@ -18,7 +18,7 @@
 <text x="66.0" y="178.0" class="value" text-anchor="start">10</text>
 <rect x="309.0" y="110.0" width="235.0" height="96.0" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
 <text x="331.0" y="142.0" class="small" text-anchor="start">Living spend</text>
-<text x="331.0" y="178.0" class="value" text-anchor="start">3,826,000 VND</text>
+<text x="331.0" y="178.0" class="value" text-anchor="start">3,707,000 VND</text>
 <rect x="574.0" y="110.0" width="235.0" height="96.0" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
 <text x="596.0" y="142.0" class="small" text-anchor="start">Income</text>
 <text x="596.0" y="178.0" class="value" text-anchor="start">16,000,000 VND</text>
@@ -37,8 +37,8 @@
 <text x="540.0" y="378.0" class="small" text-anchor="end">750,000 VND</text>
 <text x="70.0" y="429.0" class="small" text-anchor="start">Food</text>
 <rect x="190.0" y="411.0" width="350.0" height="18.0" rx="6" fill="#e2e8f0" stroke="none"/>
-<rect x="190.0" y="411.0" width="46.3" height="18.0" rx="6" fill="#f97316" stroke="none"/>
-<text x="540.0" y="426.0" class="small" text-anchor="end">331,000 VND</text>
+<rect x="190.0" y="411.0" width="29.7" height="18.0" rx="6" fill="#f97316" stroke="none"/>
+<text x="540.0" y="426.0" class="small" text-anchor="end">212,000 VND</text>
 <text x="70.0" y="477.0" class="small" text-anchor="start">Shopping</text>
 <rect x="190.0" y="459.0" width="350.0" height="18.0" rx="6" fill="#e2e8f0" stroke="none"/>
 <rect x="190.0" y="459.0" width="25.2" height="18.0" rx="6" fill="#dc2626" stroke="none"/>
@@ -54,10 +54,10 @@
 <text x="661.0" y="556.0" class="small" text-anchor="middle">LANDLORD</text>
 <rect x="706.0" y="469.0" width="42.0" height="63.0" rx="5" fill="#16a34a" stroke="none"/>
 <text x="727.0" y="556.0" class="small" text-anchor="middle">HEALTH CHECK</text>
-<rect x="772.0" y="512.0" width="42.0" height="20.0" rx="5" fill="#f97316" stroke="none"/>
-<text x="793.0" y="556.0" class="small" text-anchor="middle">HOT POT</text>
-<rect x="838.0" y="516.9" width="42.0" height="15.1" rx="5" fill="#dc2626" stroke="none"/>
-<text x="859.0" y="556.0" class="small" text-anchor="middle">BOOK STORE</text>
+<rect x="772.0" y="516.9" width="42.0" height="15.1" rx="5" fill="#f97316" stroke="none"/>
+<text x="793.0" y="556.0" class="small" text-anchor="middle">BOOK STORE</text>
+<rect x="838.0" y="522.0" width="42.0" height="10.0" rx="5" fill="#dc2626" stroke="none"/>
+<text x="859.0" y="556.0" class="small" text-anchor="middle">HOT POT</text>
 <rect x="904.0" y="526.5" width="42.0" height="5.5" rx="5" fill="#7c3aed" stroke="none"/>
 <text x="925.0" y="556.0" class="small" text-anchor="middle">RIDE HAILING</text>
 <rect x="970.0" y="527.4" width="42.0" height="4.6" rx="5" fill="#0891b2" stroke="none"/>
@@ -75,10 +75,10 @@
 <text x="78.0" y="749.0" class="small" text-anchor="end">2,010,000 VND</text>
 <line x1="88" y1="705.0" x2="1068" y2="705.0" class="grid"/>
 <text x="78.0" y="709.0" class="small" text-anchor="end">2,680,000 VND</text>
-<polyline points="88.0,862.7 120.7,861.1 153.3,847.5 186.0,820.2 218.7,705.0 251.3,865.0 284.0,865.0 316.7,865.0 349.3,865.0 382.0,865.0 414.7,865.0 447.3,865.0 480.0,865.0 512.7,865.0 545.3,865.0 578.0,865.0 610.7,865.0 643.3,865.0 676.0,865.0 708.7,865.0 741.3,865.0 774.0,865.0 806.7,865.0 839.3,865.0 872.0,865.0 904.7,865.0 937.3,865.0 970.0,865.0 1002.7,865.0 1035.3,865.0 1068.0,865.0" fill="none" stroke="#2563eb" stroke-width="3"/>
+<polyline points="88.0,862.7 120.7,861.1 153.3,854.6 186.0,820.2 218.7,705.0 251.3,865.0 284.0,865.0 316.7,865.0 349.3,865.0 382.0,865.0 414.7,865.0 447.3,865.0 480.0,865.0 512.7,865.0 545.3,865.0 578.0,865.0 610.7,865.0 643.3,865.0 676.0,865.0 708.7,865.0 741.3,865.0 774.0,865.0 806.7,865.0 839.3,865.0 872.0,865.0 904.7,865.0 937.3,865.0 970.0,865.0 1002.7,865.0 1035.3,865.0 1068.0,865.0" fill="none" stroke="#2563eb" stroke-width="3"/>
 <circle cx="88.0" cy="862.7" r="4" fill="#2563eb"/>
 <circle cx="120.7" cy="861.1" r="4" fill="#2563eb"/>
-<circle cx="153.3" cy="847.5" r="4" fill="#2563eb"/>
+<circle cx="153.3" cy="854.6" r="4" fill="#2563eb"/>
 <circle cx="186.0" cy="820.2" r="4" fill="#2563eb"/>
 <circle cx="218.7" cy="705.0" r="4" fill="#2563eb"/>
 <text x="88.0" y="895.0" class="small" text-anchor="middle">2026-08-01</text>

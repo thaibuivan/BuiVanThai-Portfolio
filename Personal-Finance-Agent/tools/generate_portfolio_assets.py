@@ -59,6 +59,11 @@ def amount(row: dict[str, str]) -> float:
     return float(row.get("amount") or 0)
 
 
+def spending_amount(row: dict[str, str]) -> float:
+    personal = float(row.get("personal_amount") or 0)
+    return personal if personal > 0 else amount(row)
+
+
 def is_living_spend(row: dict[str, str]) -> bool:
     return row.get("include_in_spending") == "TRUE"
 
@@ -96,7 +101,7 @@ def dashboard_svg(rows: list[dict[str, str]]) -> None:
     month = latest_month(rows)
     current = month_rows(rows, month)
     income = sum(amount(row) for row in current if row["cashflow_type"] == "income")
-    spend = sum(amount(row) for row in current if is_living_spend(row))
+    spend = sum(spending_amount(row) for row in current if is_living_spend(row))
     needs_review = sum(1 for row in current if row["review_status"] == "needs_review")
     transactions = len(current)
 
@@ -105,9 +110,9 @@ def dashboard_svg(rows: list[dict[str, str]]) -> None:
     daily_totals: dict[str, float] = defaultdict(float)
     for row in current:
         if is_living_spend(row):
-            category_totals[CATEGORY_LABELS.get(row["category"], row["category"])] += amount(row)
-            counterparty_totals[row["counterparty"]] += amount(row)
-            daily_totals[row["occurred_at"][:10]] += amount(row)
+            category_totals[CATEGORY_LABELS.get(row["category"], row["category"])] += spending_amount(row)
+            counterparty_totals[row["counterparty"]] += spending_amount(row)
+            daily_totals[row["occurred_at"][:10]] += spending_amount(row)
 
     top_categories = sorted(category_totals.items(), key=lambda item: item[1], reverse=True)[:5]
     top_counterparties = sorted(counterparty_totals.items(), key=lambda item: item[1], reverse=True)[:6]

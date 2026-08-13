@@ -14,6 +14,7 @@ This project turns those notifications into a usable personal finance data produ
 - Structured transaction records.
 - Human-in-the-loop category correction.
 - Debt-aware cashflow modeling.
+- Shared-bill adjustment so dashboards count only the user's real personal share.
 - Dashboard and Telegram reporting.
 - Privacy-safe LLM interface.
 
@@ -40,6 +41,7 @@ See `docs/architecture.md` for more detail.
 - Telegram notifications and category buttons.
 - Monthly dashboard with category, counterparty, and daily spend views.
 - Debt separation for borrowed money, repayments, lending, and collections.
+- Split-expense handling with `personal_amount` and `reimbursable_amount`.
 - Natural-language finance Q&A with guardrails.
 - Synthetic demo dataset for public screenshots.
 
@@ -101,4 +103,3 @@ Built a privacy-conscious personal finance agent using Google Apps Script, Gmail
 - Add category recommendation as an assistive model.
 - Add anomaly detection for unusual monthly spend.
 - Create a polished demo dashboard with synthetic data for recruiters.
-

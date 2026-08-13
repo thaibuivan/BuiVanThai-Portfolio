@@ -12,6 +12,7 @@ The current free-friendly implementation uses Google Apps Script, Google Sheets,
 - Classifies spending using keyword rules.
 - Sends Telegram review buttons when a transaction is unclear.
 - Separates living expenses from debt, loan, saving, and internal cashflows.
+- Handles shared bills with a separate personal spending amount.
 - Builds monthly dashboard/report sheets.
 - Supports Telegram commands and natural-language finance questions.
 - Uses Gemini only with sanitized aggregate data.
@@ -63,16 +64,6 @@ sample_data/mock_bank_emails/
 
 Do not use real bank data, Gmail screenshots, tokens, or OAuth credentials in public screenshots.
 
-## Demo Screenshots
-
-The following images are generated from synthetic data in `sample_data/`.
-
-![Dashboard demo](assets/dashboard-demo.svg)
-
-![Telegram demo](assets/telegram-demo.svg)
-
-![Pipeline architecture](assets/pipeline-architecture.svg)
-
 ## Telegram Commands
 
 The bot supports commands such as:
@@ -84,6 +75,7 @@ The bot supports commands such as:
 /chart
 /top
 /debt
+/split latest 2
 /uncategorized
 /review
 ```
@@ -117,6 +109,12 @@ Core analytical fields:
 - `debt_person`
 - `principal_amount`
 - `interest_amount`
+- `personal_amount`
+- `shared_with_count`
+- `reimbursable_amount`
+- `split_note`
+
+For shared bills, `amount` keeps the total bank transaction while `personal_amount` is the amount counted in dashboards.
 
 Debug/private fields:
 

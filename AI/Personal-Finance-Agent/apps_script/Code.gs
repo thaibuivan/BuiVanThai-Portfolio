@@ -32,6 +32,10 @@ const TRANSACTION_HEADERS = [
   "raw_subject",
   "raw_from",
   "raw_snippet",
+  "personal_amount",
+  "shared_with_count",
+  "reimbursable_amount",
+  "split_note",
 ];
 
 const MONTHLY_HEADERS = [
@@ -73,6 +77,11 @@ const CATEGORY_RULES = [
   ["thu hồi nợ", "Thu hồi cho vay", false, "loan_collection"],
   ["hoanvay", "Thu hồi cho vay", false, "loan_collection"],
   ["hoan vay", "Thu hồi cho vay", false, "loan_collection"],
+  ["hoantien", "Hoàn tiền chia bill", false, "reimbursement"],
+  ["hoan tien", "Hoàn tiền chia bill", false, "reimbursement"],
+  ["hoàn tiền", "Hoàn tiền chia bill", false, "reimbursement"],
+  ["chiabill", "Hoàn tiền chia bill", false, "reimbursement"],
+  ["chia bill", "Hoàn tiền chia bill", false, "reimbursement"],
   ["vaytien", "Vay nhận vào", false, "loan_in"],
   ["vay tien", "Vay nhận vào", false, "loan_in"],
   ["vay", "Vay nhận vào", false, "loan_in"],
@@ -153,6 +162,7 @@ const TELEGRAM_CATEGORIES = [
   ["Trả nợ gốc", "loan_repayment", false],
   ["Cho vay", "loan_out", false],
   ["Thu hồi cho vay", "loan_collection", false],
+  ["Hoàn tiền chia bill", "reimbursement", false],
   ["Chi phí tài chính", "financial_cost", true],
   ["Chuyển khoản nội bộ", "internal_transfer", false],
 ];
@@ -573,6 +583,10 @@ function handleTelegramMessage_(message) {
     sendTelegramMessage_(buildTopReply_(text));
     return;
   }
+  if (command === "/split" || command === "/share") {
+    sendTelegramMessage_(splitExpenseReply_(text));
+    return;
+  }
   if (command === "/uncategorized" || command === "/review") {
     sendTelegramMessage_(buildUncategorizedReply_());
     return;
@@ -606,6 +620,8 @@ function financeHelpText_() {
     "/report - Báo cáo chữ cuối tháng",
     "/top - Top category và nơi nhận tiền",
     "/debt - Tình hình vay/nợ",
+    "/split latest 2 - Chia giao dịch gần nhất cho 2 người",
+    "/split 120000 3 - Chia giao dịch gần nhất có số tiền 120.000 cho 3 người",
     "/uncategorized - Giao dịch cần phân loại",
     "",
     "Mặc định là tháng hiện tại.",
@@ -1113,9 +1129,11 @@ function safeCategorySpendSummary_(text, categoryText) {
     const month = forceMonthKey_(row[3], row[2]);
     return month === metrics.month && forceBool_(row[8]) && normalize_(row[6]) === target;
   });
-  const amount = rows.reduce((sum, row) => sum + forceNumber_(row[5]), 0);
+  const headers = SpreadsheetApp.getActive().getSheetByName(APP.transactionsSheet).getDataRange().getValues()[0] || TRANSACTION_HEADERS;
+  const col = columns_(headers);
+  const amount = rows.reduce((sum, row) => sum + spendingAmountFromArray_(row, col), 0);
   const counterparties = {};
-  rows.forEach((row) => addToMap_(counterparties, `recipient_${Object.keys(counterparties).length + 1}`, forceNumber_(row[5])));
+  rows.forEach((row) => addToMap_(counterparties, `recipient_${Object.keys(counterparties).length + 1}`, spendingAmountFromArray_(row, col)));
   return {
     type: "category_spend",
     month: metrics.month,
@@ -1300,9 +1318,11 @@ function buildCategorySpendReply_(text, categoryText) {
     return month === metrics.month && forceBool_(row[8]) && normalize_(row[6]) === target;
   });
 
-  const amount = rows.reduce((sum, row) => sum + forceNumber_(row[5]), 0);
+  const headers = SpreadsheetApp.getActive().getSheetByName(APP.transactionsSheet).getDataRange().getValues()[0] || TRANSACTION_HEADERS;
+  const col = columns_(headers);
+  const amount = rows.reduce((sum, row) => sum + spendingAmountFromArray_(row, col), 0);
   const counterparties = {};
-  rows.forEach((row) => addToMap_(counterparties, String(row[10] || "Không rõ"), forceNumber_(row[5])));
+  rows.forEach((row) => addToMap_(counterparties, String(row[10] || "Không rõ"), spendingAmountFromArray_(row, col)));
   const top = topRows_(counterparties, 3);
   const lines = [
     `${category} ${metrics.month}`,
@@ -1412,6 +1432,115 @@ function updateTransactionCategory_(transactionId, category, cashflowType, inclu
   return false;
 }
 
+function splitExpenseReply_(text) {
+  const parsed = parseSplitCommand_(text);
+  if (!parsed.ok) {
+    return [
+      "Cú pháp chia bill:",
+      "/split latest 2",
+      "/split 120000 3",
+      "/split 120000 3 50000",
+      "",
+      "Nghĩa là: tổng giao dịch vẫn giữ nguyên, nhưng dashboard chỉ tính phần của bạn.",
+    ].join("\n");
+  }
+
+  const result = applySplitExpense_(parsed);
+  if (!result.ok) {
+    return result.message;
+  }
+
+  refreshSummaries_();
+  forceRebuildDashboard_(SpreadsheetApp.getActive());
+
+  return [
+    "Đã cập nhật chia bill.",
+    `Giao dịch: ${result.counterparty}`,
+    `Tổng tiền ngân hàng trừ: ${formatMoney_(result.amount)}`,
+    `Phần tính vào chi tiêu của bạn: ${formatMoney_(result.personalAmount)}`,
+    `Phần người khác cần hoàn lại: ${formatMoney_(result.reimbursableAmount)}`,
+    "",
+    "Dashboard đã được làm mới theo phần chi tiêu cá nhân.",
+  ].join("\n");
+}
+
+function parseSplitCommand_(text) {
+  const parts = String(text || "").trim().split(/\s+/).filter(Boolean);
+  if (parts.length < 3) {
+    return { ok: false };
+  }
+
+  const target = parts[1].toLowerCase();
+  const people = Number(parts[2]);
+  if (!Number.isFinite(people) || people < 2) {
+    return { ok: false };
+  }
+
+  const explicitPersonalAmount = parts[3] ? forceNumber_(parts[3]) : 0;
+  if (target === "latest" || target === "last") {
+    return { ok: true, mode: "latest", people, explicitPersonalAmount };
+  }
+
+  const targetAmount = forceNumber_(target);
+  if (!targetAmount) {
+    return { ok: false };
+  }
+  return { ok: true, mode: "amount", targetAmount, people, explicitPersonalAmount };
+}
+
+function applySplitExpense_(parsed) {
+  const ss = SpreadsheetApp.getActive();
+  setupSheets_(ss);
+  const sheet = ss.getSheetByName(APP.transactionsSheet);
+  const values = sheet.getDataRange().getValues();
+  if (values.length < 2) {
+    return { ok: false, message: "Chưa có giao dịch để chia bill." };
+  }
+
+  const headers = values[0];
+  const col = columns_(headers);
+  const match = findSplitTargetRow_(values, col, parsed);
+  if (!match) {
+    return { ok: false, message: "Không tìm thấy giao dịch phù hợp để chia bill." };
+  }
+
+  const rowNumber = match.index + 1;
+  const amount = forceNumber_(values[match.index][col.amount]);
+  const personalAmount = parsed.explicitPersonalAmount > 0 ? parsed.explicitPersonalAmount : Math.round(amount / parsed.people);
+  const reimbursableAmount = Math.max(amount - personalAmount, 0);
+  const note = `split ${parsed.people} people; personal=${personalAmount}; reimbursable=${reimbursableAmount}`;
+
+  sheet.getRange(rowNumber, col.personal_amount + 1).setValue(personalAmount);
+  sheet.getRange(rowNumber, col.shared_with_count + 1).setValue(parsed.people);
+  sheet.getRange(rowNumber, col.reimbursable_amount + 1).setValue(reimbursableAmount);
+  sheet.getRange(rowNumber, col.split_note + 1).setValue(note);
+
+  return {
+    ok: true,
+    amount,
+    personalAmount,
+    reimbursableAmount,
+    counterparty: values[match.index][col.counterparty] || "Không rõ",
+  };
+}
+
+function findSplitTargetRow_(values, col, parsed) {
+  for (let i = values.length - 1; i >= 1; i--) {
+    const row = values[i];
+    if (!row.some((cell) => cell !== "" && cell !== null)) {
+      continue;
+    }
+    if (!forceBool_(row[col.include_in_spending]) || String(row[col.cashflow_type] || "") !== "spending") {
+      continue;
+    }
+    const amount = forceNumber_(row[col.amount]);
+    if (parsed.mode === "latest" || amount === parsed.targetAmount) {
+      return { index: i };
+    }
+  }
+  return null;
+}
+
 function maybeAskTelegram_(transaction) {
   if (transaction.review_status !== "needs_review") {
     sendTelegramMessage_(formatTransactionMessage_(transaction));
@@ -1483,7 +1612,7 @@ function refreshMonthlySummary_(ss, rows) {
       buckets[month].income += amount;
     }
     if (String(row.include_in_spending).toLowerCase() === "true") {
-      buckets[month].expense += amount;
+      buckets[month].expense += spendingAmountFromObject_(row);
     }
     if (row.cashflow_type === "loan_in") {
       buckets[month].loan_received += amount;
@@ -1601,9 +1730,9 @@ function refreshDashboard_(ss, rows) {
       income += amount;
     }
     if (String(row.include_in_spending).toLowerCase() === "true") {
-      expense += amount;
+      expense += spendingAmountFromObject_(row);
       const category = row.category || "Khác";
-      categoryTotals[category] = (categoryTotals[category] || 0) + amount;
+      categoryTotals[category] = (categoryTotals[category] || 0) + spendingAmountFromObject_(row);
     }
     if (row.cashflow_type === "loan_in") {
       loanReceived += amount;
@@ -2027,11 +2156,18 @@ function getOrCreateSheet_(ss, name, headers) {
   if (!sheet) {
     sheet = ss.insertSheet(name);
   }
-  const existing = sheet.getRange(1, 1, 1, Math.max(headers.length, sheet.getLastColumn() || 1)).getValues()[0];
-  const needsHeader = headers.some((header, index) => existing[index] !== header);
-  if (needsHeader) {
-    sheet.clear();
+
+  const lastColumn = Math.max(sheet.getLastColumn() || 1, 1);
+  const existing = sheet.getRange(1, 1, 1, lastColumn).getValues()[0].map((value) => String(value || "").trim());
+  const hasAnyHeader = existing.some(Boolean);
+  if (!hasAnyHeader) {
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    return sheet;
+  }
+
+  const missing = headers.filter((header) => existing.indexOf(header) < 0);
+  if (missing.length) {
+    sheet.getRange(1, sheet.getLastColumn() + 1, 1, missing.length).setValues([missing]);
   }
   return sheet;
 }
@@ -2520,10 +2656,11 @@ function forceMetricsFromRows_(rows, targetMonth) {
     }
     if (includeInSpending) {
       metrics.includedSpendingCount += 1;
-      metrics.expense += amount;
-      addToMap_(metrics.categoryTotals, category, amount);
-      addToMap_(metrics.counterpartyTotals, counterparty, amount);
-      addToMap_(metrics.dailyTotals, day, amount);
+      const personalSpend = spendingAmountFromArray_(row, columns_(TRANSACTION_HEADERS));
+      metrics.expense += personalSpend;
+      addToMap_(metrics.categoryTotals, category, personalSpend);
+      addToMap_(metrics.counterpartyTotals, counterparty, personalSpend);
+      addToMap_(metrics.dailyTotals, day, personalSpend);
     }
     if (cashflowType === "loan_in") {
       metrics.loanReceived += amount;
@@ -2604,6 +2741,25 @@ function forceBool_(value) {
     return true;
   }
   return String(value || "").trim().toLowerCase() === "true";
+}
+
+function spendingAmountFromObject_(row) {
+  const amount = Number(row.amount || 0);
+  const personalAmount = Number(row.personal_amount || 0);
+  return personalAmount > 0 ? personalAmount : amount;
+}
+
+function spendingAmountFromArray_(row, col) {
+  const amount = forceNumber_(row[col.amount]);
+  const personalIndex = col.personal_amount;
+  const personalAmount = personalIndex === undefined ? 0 : forceNumber_(row[personalIndex]);
+  return personalAmount > 0 ? personalAmount : amount;
+}
+
+function reimbursableAmountFromObject_(row) {
+  const amount = Number(row.amount || 0);
+  const personalAmount = Number(row.personal_amount || 0);
+  return personalAmount > 0 ? Math.max(amount - personalAmount, 0) : 0;
 }
 
 function writeEmptyDashboard_(ss, reason) {
@@ -2792,10 +2948,11 @@ function accumulateMonthRow_(metrics, row) {
     metrics.income += amount;
   }
   if (String(row.include_in_spending).toLowerCase() === "true") {
-    metrics.expense += amount;
-    addToMap_(metrics.categoryTotals, row.category || "Khác", amount);
-    addToMap_(metrics.counterpartyTotals, row.counterparty || "Không rõ", amount);
-    addToMap_(metrics.dailyTotals, day, amount);
+    const personalSpend = spendingAmountFromObject_(row);
+    metrics.expense += personalSpend;
+    addToMap_(metrics.categoryTotals, row.category || "Khác", personalSpend);
+    addToMap_(metrics.counterpartyTotals, row.counterparty || "Không rõ", personalSpend);
+    addToMap_(metrics.dailyTotals, day, personalSpend);
   }
   if (cashflowType === "loan_in") {
     metrics.loanReceived += amount;
